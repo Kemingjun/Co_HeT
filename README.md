@@ -28,6 +28,12 @@ To intuitively illustrate the collaborative mechanism, we provide a visualizatio
   <video src="media/simu_demo.mp4" controls muted width="820"></video>
 </p>
 
+
+
+https://github.com/user-attachments/assets/7f820c48-dca0-4343-9e0e-bf14e0aed1c6
+
+
+
 The animation shows the complete lifecycle of collaborative task execution under strict synchronization constraints:
 
 - **Asynchronous arrival and waiting.** When the first required robot reaches a task location, the task enters a waiting state until its heterogeneous partner arrives.
@@ -61,6 +67,7 @@ The following Webots-based video demonstrates the full industrial workflow and t
 <p align="center">
   <video src="media/cohet_real_world_factory.mp4" controls muted width="820"></video>
 </p>
+
 
 ## 🧠 Model Architecture
 
