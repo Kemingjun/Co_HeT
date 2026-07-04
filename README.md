@@ -43,7 +43,7 @@ The animation shows the complete lifecycle of collaborative task execution under
 We further evaluate Co-HeT on an industrial battery plate transfer case. The system involves a carrier, a shuttle, and a forklift, which must coordinate across supply, handover, docking, and processing stations under synchronized task requirements.
 
 <p align="center">
-  <img src="docs/figures/scenario.png" width="820" alt="Industrial battery plate transfer system and Webots simulation layout">
+  <img src="docs/figures/scenario.png" width="780" alt="Industrial battery plate transfer system and Webots simulation layout">
   <br>
   <em>Fig. 2. Industrial battery plate transfer system and its Webots-based simulation layout.</em>
 </p>
@@ -55,7 +55,7 @@ The workflow is summarized as follows:
 - **Delivery after release.** After the forklift is released, the carrier-shuttle pair completes the downstream delivery.
 
 <p align="center">
-  <img src="docs/figures/workflow.png" width="860" alt="Industrial real-world task execution workflow">
+  <img src="docs/figures/workflow.png" width="780" alt="Industrial real-world task execution workflow">
   <br>
   <em>Fig. 3. Collaborative transfer task execution from task-point specification to synchronized handover and delivery.</em>
 </p>
