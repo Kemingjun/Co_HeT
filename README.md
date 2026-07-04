@@ -29,11 +29,6 @@ To intuitively illustrate the collaborative mechanism, we provide a visualizatio
 </p>
 
 
-
-https://github.com/user-attachments/assets/7f820c48-dca0-4343-9e0e-bf14e0aed1c6
-
-
-
 The animation shows the complete lifecycle of collaborative task execution under strict synchronization constraints:
 
 - **Asynchronous arrival and waiting.** When the first required robot reaches a task location, the task enters a waiting state until its heterogeneous partner arrives.
