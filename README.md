@@ -6,6 +6,8 @@
 
 This repository contains the official implementation and baseline algorithms for the paper: **"Co-HeT: A Transformer-based Deep Reinforcement Learning Approach for Collaborative Heterogeneous Robot Scheduling"**.
 
+---
+
 ## 📌 Overview
 
 Modern smart manufacturing and logistics increasingly involve coupled operations that cannot be completed by a single robot type. In a smart warehouse, forklifts, AGVs, mobile manipulators, and human operators may need to coordinate at collaborative workstations, where each task can start only after all required robot types are present and available.
@@ -24,9 +26,10 @@ The main challenge is the tight coupling among task allocation, heterogeneous co
 
 To intuitively illustrate the collaborative mechanism, we provide a visualization of Co-HeT solving a medium-scale instance with 50 coupled tasks, coordinated by 4 Type-1 robots and 8 Type-2 robots.
 
-<p align="center">
-  <video src="media/simu_demo.mp4" controls muted width="820"></video>
-</p>
+
+https://github.com/user-attachments/assets/416931c4-035d-4d8c-8656-922a7488da59
+
+
 
 
 The animation shows the complete lifecycle of collaborative task execution under strict synchronization constraints:
@@ -59,9 +62,10 @@ The workflow is summarized as follows:
 
 The following Webots-based video demonstrates the full industrial workflow and the corresponding coordinated robot execution.
 
-<p align="center">
-  <video src="media/cohet_real_world_factory.mp4" controls muted width="820"></video>
-</p>
+
+
+https://github.com/user-attachments/assets/58425bd4-60c6-4ba6-9c6b-2504260f516b
+
 
 
 ## 🧠 Model Architecture
