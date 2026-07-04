@@ -139,7 +139,10 @@ def run(opts):
                 if torch.is_tensor(v):
                     state[k] = v.to(opts.device)
 
-    grad_scaler = torch.amp.GradScaler('cuda', enabled=opts.use_cuda and opts.train_precision == 'fp16')
+    if hasattr(torch, 'amp') and hasattr(torch.amp, 'GradScaler'):
+        grad_scaler = torch.amp.GradScaler('cuda', enabled=opts.use_cuda and opts.train_precision == 'fp16')
+    else:
+        grad_scaler = torch.cuda.amp.GradScaler(enabled=opts.use_cuda and opts.train_precision == 'fp16')
     if 'grad_scaler' in load_data and load_data['grad_scaler'] is not None and opts.train_precision == 'fp16':
         grad_scaler.load_state_dict(load_data['grad_scaler'])
 

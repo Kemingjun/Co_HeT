@@ -17,9 +17,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--decode_strategies", nargs="+", default=["greedy", "sample"])
     parser.add_argument("--sample_width", type=int, default=1280)
     parser.add_argument("--eval_batch_size", type=int, default=1)
+    parser.add_argument("--val_size", type=int, default=10000)
     parser.add_argument("--sizes", nargs="+", type=int, default=[10, 20, 50, 100])
     parser.add_argument("--out_prefix", default=str(REPO_ROOT / "results" / "comparison" / "benchmark"))
     parser.add_argument("--no_cuda", action="store_true")
+    parser.add_argument("--no_progress_bar", action="store_true")
     return parser.parse_args()
 
 
@@ -49,12 +51,16 @@ def main() -> int:
                         decode,
                         "--eval_batch_size",
                         str(args.eval_batch_size),
+                        "--val_size",
+                        str(args.val_size),
                         "--force",
                     ]
                     if decode == "sample":
                         command.extend(["--width", str(args.sample_width)])
                     if args.no_cuda:
                         command.append("--no_cuda")
+                    if args.no_progress_bar:
+                        command.append("--no_progress_bar")
                     status = subprocess.call(command)
                     rows.append(
                         {

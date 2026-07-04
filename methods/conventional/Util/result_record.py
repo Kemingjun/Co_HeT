@@ -5,11 +5,6 @@ import os
 optimal_solution_dict = {}
 
 
-# def init_optimal_solution():
-#     global optimal_solution_dict
-#     with open("C:/Users/13360/Desktop/CHAGV/AHASP_python/Util/optimal_solution_final.json", "r") as file:
-#         optimal_solution_dict = json.load(file)
-#     pass
 class optimalSolution:
     def __init__(self, instance, code, fitness):
         self.instance = instance

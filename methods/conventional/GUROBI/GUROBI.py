@@ -6,7 +6,6 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.dirname(current_dir)
 
 sys.path.append(root_dir)
-# sys.path.append('C:/Users/13360/Desktop/HRSP/HRSP_ALNS/HRPS_ALNS')
 
 from gurobipy import *
 from Util.load_data import read_excel
