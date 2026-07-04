@@ -27,9 +27,9 @@ The main challenge is the tight coupling among task allocation, heterogeneous co
 To intuitively illustrate the collaborative mechanism, we provide a visualization of Co-HeT solving a medium-scale instance with 50 coupled tasks, coordinated by 4 Type-1 robots and 8 Type-2 robots.
 
 
-https://github.com/user-attachments/assets/416931c4-035d-4d8c-8656-922a7488da59
-
-
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/416931c4-035d-4d8c-8656-922a7488da59" controls autoplay loop muted></video>
+</div>
 
 
 The animation shows the complete lifecycle of collaborative task execution under strict synchronization constraints:
@@ -63,8 +63,10 @@ The workflow is summarized as follows:
 The following Webots-based video demonstrates the full industrial workflow and the corresponding coordinated robot execution.
 
 
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/58425bd4-60c6-4ba6-9c6b-2504260f516b" controls autoplay loop muted></video>
+</div>
 
-https://github.com/user-attachments/assets/58425bd4-60c6-4ba6-9c6b-2504260f516b
 
 
 
