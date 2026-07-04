@@ -13,7 +13,7 @@ Modern smart manufacturing and logistics increasingly involve coupled operations
 Co-HeT studies **Collaborative Heterogeneous Robot Scheduling Problems (CHRSP)**, a class of problems that abstracts this workflow into synchronized scheduling of functionally heterogeneous robot coalitions. This repository provides the proposed model, adapted DRL baselines, traditional exact and metaheuristic baselines, benchmark and real-world instances, visualization media, and pretrained checkpoints.
 
 <p align="center">
-  <img src="docs/figures/logistic.png" width="410" alt="Collaborative heterogeneous robot scheduling scenario">
+  <img src="docs/figures/logistic.png" width="600" alt="Collaborative heterogeneous robot scheduling scenario">
   <br>
   <em>Fig. 1. A smart warehouse scenario involving synchronized collaboration among functionally heterogeneous robots.</em>
 </p>
