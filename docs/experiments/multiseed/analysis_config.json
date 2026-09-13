@@ -1,0 +1,77 @@
+{
+  "graph_size": 20,
+  "robot_type_num": 2,
+  "robot_count": 12,
+  "methods": [
+    "Co-HeT",
+    "AM",
+    "MVMoE",
+    "HDRL",
+    "TDRL",
+    "ECHO"
+  ],
+  "training_seeds": [
+    1234,
+    2345,
+    3456
+  ],
+  "evaluation_modes": {
+    "greedy": 0,
+    "sample1280": 1280
+  },
+  "sample_eval_seed": 20260827,
+  "bootstrap_seed": 20260827,
+  "bootstrap_replicates": 10000,
+  "instance_count": 100,
+  "greedy_eval_batch_size": 100,
+  "sampling_eval_batch_size": 1,
+  "distance": "manhattan",
+  "robot_velocity": 1.0,
+  "objective_weights": {
+    "distance": 0.5,
+    "tardiness": 0.5
+  },
+  "open_path": true,
+  "return_to_depot": false,
+  "statistics": {
+    "sd": "sample standard deviation (ddof=1) of the three training-seed means",
+    "confidence_interval": "10000-replicate crossed bootstrap with training-seed and instance indices resampled independently",
+    "paired_unit": "100 instances after averaging each instance over the three training seeds",
+    "test": "two-sided paired Wilcoxon signed-rank",
+    "multiplicity": "Holm adjustment over five pre-specified Co-HeT-versus-baseline comparisons, separately by inference mode",
+    "effect": "matched-pairs rank-biserial correlation of baseline minus Co-HeT; positive favors Co-HeT"
+  },
+  "instance_directory": "../../../instances/synthetic/type_2/Instance/N20_K2_M12",
+  "bootstrap_cell_seeds": {
+    "Co-HeT": {
+      "greedy": 18434244390081316258,
+      "sample1280": 8518760941835222585
+    },
+    "AM": {
+      "greedy": 1530182261738093007,
+      "sample1280": 6101694089900960205
+    },
+    "MVMoE": {
+      "greedy": 9562137538354003121,
+      "sample1280": 5522008441091456033
+    },
+    "HDRL": {
+      "greedy": 6416027856181404435,
+      "sample1280": 17447810280293427555
+    },
+    "TDRL": {
+      "greedy": 11977730079423210325,
+      "sample1280": 12531537266733071999
+    },
+    "ECHO": {
+      "greedy": 10599740514805018025,
+      "sample1280": 15803561691117871269
+    }
+  },
+  "bootstrap_rng": "numpy.random.default_rng (PCG64); explicit per-cell seeds preserve the original random streams",
+  "wilcoxon": {
+    "alternative": "two-sided",
+    "zero_method": "wilcox",
+    "method": "auto"
+  }
+}

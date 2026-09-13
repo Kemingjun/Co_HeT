@@ -116,7 +116,7 @@ def plan(args):
                   mip_gap=args.mip_gap, seed=args.seed, diagnostic=bool(args.diagnostic),
                   instances_root=str(root), python_hash_seed="0",
                   seed_formula="202409 + hash((method.upper(), rep)) % 10000000",
-                  metaheuristic_loop="count <= iteration_limit (historical inclusive condition)")
+                  metaheuristic_loop="count <= iteration_limit")
     return config, jobs, args.results_root.resolve() / run_id
 
 

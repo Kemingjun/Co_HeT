@@ -1,4 +1,4 @@
-"""Numerical constants from the result-producing round-2 Gurobi package."""
+"""Numerical constants for the Gurobi MILP model."""
 
 from dataclasses import dataclass
 

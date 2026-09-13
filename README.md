@@ -369,6 +369,8 @@ Per-instance results are provided for the [main comparison](docs/experiments/mai
 | Model configurations and checkpoints | [Checkpoint guide](checkpoints/README.md); each model's adjacent `args.json` records its training settings |
 | Training and evaluation | [Training entry point](scripts/train_drl.py), [evaluation entry point](scripts/eval_drl.py), [baseline adaptations](docs/method_adaptations.md) and [MILP/metaheuristic guide](methods/conventional/README.md) |
 | Main comparison | [Experiment configuration](scripts/experiments/main/experiment.json), [fixed-instance runner](scripts/experiments/main/task_runner.py) and [results and reconstruction](docs/experiments/main_comparison/README.md) |
+| Multiseed statistics | [Paired inputs and statistics](docs/experiments/multiseed), [analysis configuration](docs/experiments/multiseed/analysis_config.json) and [offline reconstruction](docs/reproducibility.md#multiseed-statistics) |
+| Generation-mechanism OOD | [Paired ID/OOD inputs and statistics](docs/experiments/generation_ood), [generator](scripts/generate_generation_ood.py) and [offline reconstruction](docs/reproducibility.md#generation-mechanism-ood) |
 | Convergence curves | [Training cost](#training-convergence) and [validation mean cost](#validation-convergence) |
 | Industrial simulation | [Guide and results](docs/experiments/industrial/README.md); Co-HeT industrial scheduling environment: [parameter configuration](methods/real_world/cohet/problems/hrsp/paramet_hrsp.py) and [state transitions](methods/real_world/cohet/problems/hrsp/state_hrsp.py); [Webots video](media/cohet_webots_industrial_case.mp4) |
 

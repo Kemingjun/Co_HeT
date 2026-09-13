@@ -1,0 +1,64 @@
+{
+  "methods": [
+    "Co-HeT",
+    "AM",
+    "MVMoE",
+    "HDRL",
+    "TDRL",
+    "ECHO"
+  ],
+  "sizes": [
+    20,
+    50
+  ],
+  "kappas": [
+    2,
+    3
+  ],
+  "mechanisms": [
+    "ID",
+    "D-IID",
+    "D-Bimodal",
+    "D-AntiDistance",
+    "P-TruncNormal",
+    "P-Lognormal",
+    "Joint"
+  ],
+  "decodes": {
+    "greedy": 0,
+    "sample1280": 1280
+  },
+  "main_training_seeds": [
+    1234
+  ],
+  "instance_count_per_cell": 100,
+  "sample_eval_seed": 20260827,
+  "distance": "manhattan",
+  "velocity": 1.0,
+  "open_path": true,
+  "return_to_depot": false,
+  "objective_weights": {
+    "distance": 0.5,
+    "tardiness": 0.5
+  },
+  "greedy_eval_batch_size": 100,
+  "sample_eval_batch_size": 1,
+  "precision": 32,
+  "instance_directory": "../../../instances/generation_ood",
+  "generator_config": "generator_config.json",
+  "statistics": {
+    "objective_column": "objective",
+    "objective_definition": "0.5 * distance + 0.5 * tardiness",
+    "model_objective": "Objective returned by the model; not the input column used for statistical summaries",
+    "paired_unit": "instance_index within method, kappa, size and decode, paired to the ID mechanism",
+    "degradation_percent": "100 * (objective - id_objective) / id_objective",
+    "paper_aggregation": "equal mean across the four size/kappa cells; mean across six OOD mechanisms for the overall row",
+    "multiplicity": "Holm adjustment over five Co-HeT-versus-baseline comparisons within each kappa/size/mechanism/decode setting",
+    "effect": "matched-pairs rank-biserial correlation of baseline minus Co-HeT; positive favors Co-HeT"
+  },
+  "wilcoxon": {
+    "alternative": "two-sided",
+    "zero_method": "wilcox",
+    "method": "auto"
+  }
+}

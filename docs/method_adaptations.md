@@ -23,5 +23,3 @@ The common main settings include 128-dimensional embeddings and hidden states, o
 | ECHO | 0.759 / 0.759 |
 
 Consult the adjacent `args.json` for each model's precision, architecture and training settings. TDRL uses a fixed robot-count dimension. Architecture variants are implemented in `methods/learning/cohet_ablation`. Industrial models were retrained on generated industrial simulation data at each task scale.
-
-Original project acknowledgements and links are retained in the root README. The repository's MIT license and upstream file notices are preserved.

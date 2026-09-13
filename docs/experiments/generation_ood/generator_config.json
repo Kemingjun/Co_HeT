@@ -1,0 +1,57 @@
+{
+  "id_directory": "instances/generation_ood/ID",
+  "master_seed": 20260825,
+  "sizes": [20, 50],
+  "kappas": [2, 3],
+  "mechanisms": ["D-IID", "D-Bimodal", "D-AntiDistance", "P-TruncNormal", "P-Lognormal", "Joint"],
+  "instances_per_cell": 100,
+  "processing_ranges": {
+    "2": [[0.3, 0.7], [0.8, 1.2]],
+    "3": [[0.4, 0.8], [0.6, 1.0], [0.8, 1.2]]
+  },
+  "mechanism_parameters": {
+    "D-IID": {
+      "distribution": "uniform",
+      "low": 0.3,
+      "high_n_coefficient": 0.5,
+      "high_offset": 0.2
+    },
+    "D-Bimodal": {
+      "low_component_probability": 0.5,
+      "low_beta_shapes": [2, 8],
+      "high_beta_shapes": [8, 2],
+      "offset": 0.3,
+      "scale_n_coefficient": 0.5,
+      "scale_offset": -0.1,
+      "sampling_order": ["component_choices", "low_component", "high_component"]
+    },
+    "D-AntiDistance": {
+      "distance": "source_x + source_y",
+      "assignment": "ascending_ID_deadlines_to_descending_distance",
+      "distance_sort": "stable",
+      "shuffled_fraction": 0.3,
+      "subset_size": "max(2, ceil(shuffled_fraction * n))",
+      "subset_with_replacement": false,
+      "perturbation": "shuffle_deadlines_within_selected_subset"
+    },
+    "P-TruncNormal": {
+      "mean": "processing_range_midpoint",
+      "standard_deviation": 0.1,
+      "support": "processing_range_inclusive",
+      "max_attempts_per_value": 10000,
+      "sampling_order": "task_then_function"
+    },
+    "P-Lognormal": {
+      "arithmetic_mean": "processing_range_midpoint",
+      "coefficient_of_variation": 0.25,
+      "sigma_log": "sqrt(log1p(CV * CV))",
+      "mu_log": "log(arithmetic_mean) - 0.5 * sigma_log * sigma_log",
+      "truncate": false,
+      "sampling_order": "task_then_function"
+    },
+    "Joint": {
+      "ordered_mechanisms": ["D-IID", "P-Lognormal"],
+      "shared_rng_stream": true
+    }
+  }
+}

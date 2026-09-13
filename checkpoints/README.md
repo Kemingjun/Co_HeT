@@ -11,7 +11,7 @@ Models are stored as `epoch-99.pt` beside their `args.json`, which records model
 | `weight_sensitivity` | Nine weights 0.1 through 0.9; weight 0.5 reuses the main model | `methods/learning/cohet_weight` |
 | `real_world` | 24 models retrained on industrial simulation data: six methods at n=10,20,30,40 | `methods/real_world/<method>` |
 
-There are 109 checkpoint paths. Configuration files remain adjacent to every model because loading settings can differ even when model weights are shared.
+There are 109 checkpoint paths, each with an adjacent configuration file.
 
-Pass the model directory or `.pt` file to the relevant loader. Main and multi-seed models use [the unified evaluation entry](../scripts/eval_drl.py); the robot-type argument selects the matching method implementation. Specialized models are described in [reproducibility](../docs/reproducibility.md). Architecture variants use the `ablation_variant` field in their configuration. Inference loads the checkpoint and adjacent configuration from the supplied local path; `save_dir`, log and resume paths record training locations.
+Pass the model directory or `.pt` file to the relevant loader. Main and multi-seed models use [the unified evaluation entry](../scripts/eval_drl.py); the robot-type argument selects the matching method implementation. Specialized models are described in [reproducibility](../docs/reproducibility.md). Architecture variants use the `ablation_variant` field in their configuration.
 

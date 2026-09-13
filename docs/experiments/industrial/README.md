@@ -25,14 +25,14 @@ The industrial layout, robot speeds, and operation times are parameterized using
 
 The [test-set description](../../../instances/real_world_test100_seed20260906/README.md) and [generation configuration](../../../instances/real_world_test100_seed20260906/generation_config.json) specify the generated layout and deadlines. Supply and handover positions share a randomly selected side; station positions are sampled from fixed slots. Deadlines follow a task-index rule with bounded noise and are shuffled. The [generator](../../../scripts/generate_industrial_testset.py) produces 100 independent test instances at each of n = 10, 20, 30, 40, using the seeds above.
 
-Each of the six DRL methods is retrained on generated industrial simulation data for each task scale, yielding 24 industrial checkpoints. The comparison uses these retrained models rather than directly transferring the synthetic-benchmark checkpoints. Training uses the industrial travel-time and tardiness objective. The [training configuration](../../../scripts/industrial/training/configs/experiment.json) and [checkpoint guide](../../../checkpoints/README.md) give the settings and model locations.
+Each of the six DRL methods is retrained on generated industrial simulation data for each task scale, yielding 24 industrial checkpoints. Training uses the industrial travel-time and tardiness objective. The [training configuration](../../../scripts/industrial/training/configs/experiment.json) and [checkpoint guide](../../../checkpoints/README.md) give the settings and model locations.
 
 ## Included results
 
 - [DRL results](drl/per_instance_results.csv): 2,400 per-instance records from the six retrained models under Sample-1280.
 - [ALNS results](alns/per_rep_results.csv): 2,000 records, comprising five repetitions for each of 400 instances. Repetitions are averaged per instance for reported method means.
 - [Gurobi results](gurobi/per_instance_results.csv): 300 time-limited incumbents for n = 10, 20, 30, with original certificates and routes. At n = 40, all 100 runs reached the 3600 s limit: 79 had no incumbent and 21 returned feasible incumbents. A dash in the comparison table indicates that a complete 100-instance objective comparison is unavailable.
-- The CSV reports schedule objectives evaluated from saved routes alongside the original solver incumbent objective. Bounds and MIP gaps refer to that original incumbent, not the route-derived schedule objective. All original values are preserved; runtime is the time reported by the solver.
+- Reported Gurobi objectives are evaluated from saved routes; the original solver incumbent objectives, bounds, and MIP gaps are retained separately in the CSV.
 
 The [baseline guide](../../../methods/conventional/README.md) lists ALNS settings.
 

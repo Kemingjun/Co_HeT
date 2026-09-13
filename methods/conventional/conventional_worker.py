@@ -1,4 +1,4 @@
-"""One isolated solver invocation; numerical code follows the round-2 packages."""
+"""Run one isolated solver invocation."""
 from __future__ import annotations
 
 import argparse
