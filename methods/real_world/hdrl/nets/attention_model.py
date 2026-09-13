@@ -48,7 +48,7 @@ class AttentionModel(nn.Module):
 
         self.problem = problem
         self.n_heads = n_heads
-        self.checkpoint_encoder = checkpoint_encoder
+        self.checkpoint_encoder = checkpoint_encoder  # 鐢ㄤ簬鑺傜渷鏄惧瓨锛圙PU memory锛?鐨勬妧鏈€?
         self.shrink_size = shrink_size
 
 
@@ -71,7 +71,7 @@ class AttentionModel(nn.Module):
 
 
 
-        self.graph_init_linear = nn.Linear(node_dim, embedding_dim, bias=False)
+        self.graph_init_linear = nn.Linear(node_dim, embedding_dim, bias=False)  # 杈撳叆鐗瑰緛缁村害: node_dim 鈥? 杈撳嚭鐗瑰緛缁村害: embedding_dim
 
         self.graph_embedder = GraphAttentionEncoder(
             n_heads=n_heads,
@@ -80,6 +80,7 @@ class AttentionModel(nn.Module):
             normalization=normalization
         )
 
+        # 鐩墠鍥剧殑娉ㄦ剰鍔涘拰Robot鐨勬敞鎰忓姏鏄浉鍚岀殑
         self.robot_embedder = RobotAttentionEncoder(
             n_heads=n_heads,
             embed_dim=embedding_dim,
@@ -137,6 +138,7 @@ class AttentionModel(nn.Module):
             node_embeddings, graph_embedding = self.graph_embedder(self.graph_init_embed(input))
 
 
+        # 姝ゅ鐨刲og_p宸茬粡鏄搴攑i鐨刲og_p浜?
         _log_p, pi, cost, distance, tardiness = self._inner(input, node_embeddings)
 
         # cost, mask = self.problem.get_costs(input, pi)
@@ -175,18 +177,20 @@ class AttentionModel(nn.Module):
             input['supply_norm'],
             input['handover_norm'],
             input['delivery_norm'],
-            input['deadline'][:, :, None] / paramet_hrsp.time_norm
+            input['deadline'][:, :, None].to(dtype=input['supply_norm'].dtype) / paramet_hrsp.time_norm
             ), dim=-1)
 
         # prompt_info = input['operation_time']
         return self.graph_init_linear(node_info)
 
     def robot_init_embed(self, state):
+        # TODO 鐙儹缂栫爜閮ㄥ垎鏄亽瀹氱殑
+        # TODO 褰掍竴鍖栨柟娉曪紝scale锛宭ayernorm锛宐atchnorm
         assert paramet_hrsp.time_norm is not None, 'paramet_hrsp.time_norm is None'
         robot_init_info = torch.cat((
             state.cur_coord,
-            state.cur_time.unsqueeze(-1) / paramet_hrsp.time_norm,
-            # paramet_hrsp.robot_one_hot.to(state.cur_coord.device).unsqueeze(0).expand(state.cur_coord.size(0), -1, -1)
+            state.cur_time.unsqueeze(-1).to(dtype=state.cur_coord.dtype) / paramet_hrsp.time_norm,
+            # paramet_hrsp.robot_one_hot.unsqueeze(0).expand(state.cur_coord.size(0), -1, -1)
         ), -1)
         return self.robot_init_linear(robot_init_info)
 
@@ -271,7 +275,8 @@ class AttentionModel(nn.Module):
             selected_robot_one_hot, robot_selected, robot_log_p, selected_robots_embedding_list = self.robot_decision(vehicle_embeddings, env_context)
             # selected_robot_one_hot, robot_selected, robot_log_p, selected_robots_embedding_list = self.vehicle_selector(vehicle_embeddings)
 
-            _robot_log_p = robot_log_p.squeeze(1)
+            _robot_log_p = robot_log_p.squeeze(1)  # 鐜板湪褰㈢姸鏄?(1024, 6)
+            # 2. 鏇挎崲 -1 涓?0锛堥伩鍏?gather 瓒婄晫锛屽悗缁細灞忚斀锛?
             selected_robot_log_p = torch.gather(
                 _robot_log_p,
                 dim=1,
@@ -306,22 +311,22 @@ class AttentionModel(nn.Module):
             sequences.append(action)
 
             i += 1
-        sum_length = state.length
-        cost = sum_length * paramet_hrsp.WEIGHT + state.tardiness * (1 - paramet_hrsp.WEIGHT)
+        sum_travel_time = state.travel_time
+        cost = sum_travel_time * paramet_hrsp.WEIGHT + state.tardiness * (1 - paramet_hrsp.WEIGHT)
 
         # Collected lists, return Tensor
-        return torch.stack(outputs, 1), torch.stack(sequences, 1), cost, sum_length, state.tardiness
+        return torch.stack(outputs, 1), torch.stack(sequences, 1), cost, sum_travel_time, state.tardiness
 
     def route_avg_pool(self, node_embeddings: torch.Tensor,
                        route: torch.Tensor,
                        placeholder: str = "zeros"):
         """
         node_embeddings: [B, N, D]
-        route: [B, R, L] -1
+        route: [B, R, L]锛屾湭鐢ㄤ綅缃负 -1
         Returns:
-            pooled:   [B, R, D]   agent ?
-            gathered: [B, R, L, D]  adding ?
-            counts:   [B, R]   agent 
+            pooled:   [B, R, D]  姣忎釜 agent 鐨勫钩鍧囨睜鍖栧祵鍏?
+            gathered: [B, R, L, D]  璺緞搴忓垪宓屽叆锛坧adding 浣嶇疆浼氬湪姹犲寲鏃惰鎺╂帀锛?
+            counts:   [B, R]  姣忎釜 agent 鐨勬湁鏁堜换鍔℃暟
         """
         assert node_embeddings.dim() == 3 and route.dim() == 3
         B, N, D = node_embeddings.shape
@@ -331,20 +336,25 @@ class AttentionModel(nn.Module):
         device = node_embeddings.device
         dtype = node_embeddings.dtype
 
+        # 鏈夋晥鎺╃爜涓庡畨鍏ㄧ储寮?
         mask = (route != -1)  # [B,R,L]
-        route_clamped = route.clamp(min=0)
+        route_clamped = route.clamp(min=0)  # 鎶?-1 涓存椂褰?0 澶勭悊锛屼箣鍚庣敤 mask 鎶规帀
 
+        # 灞曞钩鍚庣殑 (b, n) -> b*N + n
         b_idx = torch.arange(B, device=device).view(B, 1, 1).expand(B, R, L)  # [B,R,L]
         flat_idx = (b_idx * N + route_clamped).reshape(-1).long()  # [B*R*L]
 
+        # 灞曞钩鎴?[B*N, D] 鍚庝竴娆℃€?index_select
         emb_flat = node_embeddings.reshape(B * N, D).contiguous()  # [B*N, D]
         gathered = emb_flat.index_select(0, flat_idx).reshape(B, R, L, D)  # [B,R,L,D]
 
+        # 骞冲潎姹犲寲锛堝 -1 鐨勪綅缃疆闆跺苟涓嶈鍏ュ垎姣嶏級
         mask_f = mask.unsqueeze(-1).to(gathered.dtype)  # [B,R,L,1]
         summed = (gathered * mask_f).sum(dim=2)  # [B,R,D]
-        counts = mask.sum(dim=2).clamp(min=1)
+        counts = mask.sum(dim=2).clamp(min=1)  # [B,R]锛岄槻姝㈤櫎闆?
         pooled = summed / counts.unsqueeze(-1).to(summed.dtype)  # [B,R,D]
 
+        # 瀵光€滄病鏈変换鍔♀€濈殑 agent 缁欏崰浣嶇锛坈ounts==0锛?
         empty = (mask.sum(dim=2) == 0)  # [B,R]
         if placeholder == "zeros":
             pooled = torch.where(empty.unsqueeze(-1), torch.zeros_like(pooled), pooled)
@@ -358,11 +368,11 @@ class AttentionModel(nn.Module):
                        placeholder: str = "zeros"):
         """
         node_embeddings: [B, N, D]
-        route: [B, R, L] -1
+        route: [B, R, L]锛屾湭鐢ㄤ綅缃负 -1
         Returns:
-            pooled:   [B, R, D]   agent ?
-            gathered: [B, R, L, D]  adding ?
-            counts:   [B, R]   agent 
+            pooled:   [B, R, D]  姣忎釜 agent 鐨勬渶澶ф睜鍖栧祵鍏?
+            gathered: [B, R, L, D]  璺緞搴忓垪宓屽叆锛坧adding 浣嶇疆浼氬湪姹犲寲鏃惰蹇界暐锛?
+            counts:   [B, R]  姣忎釜 agent 鐨勬湁鏁堜换鍔℃暟
         """
         assert node_embeddings.dim() == 3 and route.dim() == 3
         B, N, D = node_embeddings.shape
@@ -374,28 +384,35 @@ class AttentionModel(nn.Module):
         if not torch.is_floating_point(node_embeddings):
             raise TypeError("route_max_pool requires floating point node_embeddings")
 
+        # 鏈夋晥鎺╃爜涓庡畨鍏ㄧ储寮?
         mask = (route != -1)  # [B,R,L]
         route_clamped = route.clamp(min=0)
 
+        # 灞曞钩绱㈠紩
         b_idx = torch.arange(B, device=device).view(B, 1, 1).expand(B, R, L)
         flat_idx = (b_idx * N + route_clamped).reshape(-1).long()
 
+        # 涓€娆℃€?gather
         emb_flat = node_embeddings.reshape(B * N, D).contiguous()  # [B*N, D]
         gathered = emb_flat.index_select(0, flat_idx).reshape(B, R, L, D)  # [B,R,L,D]
 
+        # 鏈€澶ф睜鍖栵紙灏嗘棤鏁堜綅缃～鍏呬负 -inf锛屽啀鍦?L 缁村彇鏈€澶э級
         mask_bool = mask.unsqueeze(-1)  # [B,R,L,1]
         neg_inf = torch.finfo(dtype).min
         gathered_masked = torch.where(mask_bool, gathered, torch.full_like(gathered, neg_inf))
         pooled, _ = gathered_masked.max(dim=2)  # [B,R,D]
 
+        # 缁熻鏈夋晥鏁?
         counts = mask.sum(dim=2)  # [B,R]
 
+        # 瀵光€滄病鏈変换鍔♀€濈殑 agent 鍋氬崰浣?
         empty = (counts == 0)  # [B,R]
         if placeholder == "zeros":
             pooled = torch.where(empty.unsqueeze(-1), torch.zeros_like(pooled), pooled)
         else:
             raise ValueError("Unsupported placeholder type")
 
+        # 涓轰簡鍜屽師鎺ュ彛涓€鑷达紝閬垮厤涓嬫父闄ら浂锛岃繖閲屼繚鎸?counts>=0锛堜笉鍐?clamp 鍒?1锛?
         return self.route_linear(pooled)
 
 
@@ -472,6 +489,7 @@ class AttentionModel(nn.Module):
         log_p, glimpse = self._one_to_many_logits(query, glimpse_K, glimpse_V, logit_K, mask)
 
         # self.last_glimpse = glimpse
+        # 灏?logits 杞崲涓?log-probability
         if normalize:
             log_p = torch.log_softmax(log_p / self.temp, dim=-1)
 
@@ -613,6 +631,7 @@ class AttentionModel(nn.Module):
         heads = torch.matmul(torch.softmax(compatibility, dim=-1), glimpse_V)
 
         # Project to get glimpse/updated context node embedding (batch_size, num_steps, embedding_dim)
+        # 姣忎竴涓猙atch锛岀敓鎴愪竴涓猤limpse锛屽褰撳墠鐨刢ontext鐪嬩簡涓€鐪煎緱鍑虹殑
         glimpse = self.project_out(
             heads.permute(1, 2, 3, 0, 4).contiguous().view(-1, num_steps, 1, self.n_heads * val_size))
 
@@ -624,6 +643,7 @@ class AttentionModel(nn.Module):
         # Batch matrix multiplication to compute logits (batch_size, num_steps, graph_size)
         # logits = 'compatibility'
 
+        # 鍗曞ご鎿嶄綔
         logits = torch.matmul(final_Q, logit_K.transpose(-2, -1)).squeeze(-2) / math.sqrt(final_Q.size(-1))
 
         # From the logits compute the probabilities by clipping, masking and softmax
@@ -653,6 +673,7 @@ class AttentionModel(nn.Module):
         heads = torch.matmul(torch.softmax(compatibility, dim=-1), glimpse_V)
 
         # Project to get glimpse/updated context node embedding (batch_size, num_steps, embedding_dim)
+        # 姣忎竴涓猙atch锛岀敓鎴愪竴涓猤limpse锛屽褰撳墠鐨刢ontext鐪嬩簡涓€鐪煎緱鍑虹殑
         glimpse = self.project_out_robot(
             heads.permute(1, 2, 3, 0, 4).contiguous().view(-1, num_steps, 1, self.n_heads * val_size))
 
@@ -663,6 +684,7 @@ class AttentionModel(nn.Module):
         # Batch matrix multiplication to compute logits (batch_size, num_steps, graph_size)
         # logits = 'compatibility'
 
+        # 鍗曞ご鎿嶄綔
         logits = torch.matmul(final_Q, logit_K.transpose(-2, -1)).squeeze(-2) / math.sqrt(final_Q.size(-1))
 
         # From the logits compute the probabilities by clipping, masking and softmax
@@ -677,12 +699,11 @@ class AttentionModel(nn.Module):
     def _make_heads(self, v, num_steps=None):
         assert num_steps is None or v.size(1) == 1 or v.size(1) == num_steps
 
+        # 璋冩暣缁村害锛歳eshape 鎴愬澶存牸寮?
         return (
             v.contiguous().view(v.size(0), v.size(1), v.size(2), self.n_heads, -1)
             .expand(v.size(0), v.size(1) if num_steps is None else num_steps, v.size(2), self.n_heads, -1)
             .permute(3, 0, 1, 2, 4)  # (n_heads, batch_size, num_steps, graph_size, head_dim)
         )
-
-
 
 

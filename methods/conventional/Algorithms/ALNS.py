@@ -1,10 +1,13 @@
-﻿from Util.generate_init_solution import generate_solution_nearest
+from Util.generate_init_solution import generate_solution_nearest
+from Util.load_data import read_excel
 from Util.operators import *
 import numpy as np
 import math
+# from Util.ALNS_config import ALNSConfig
 import time
+# import Util.result_record as RR
 
-d_num_coefficient = 0.2
+d_num_coefficient = 0.2  # destroy个数的比例
 T_coefficient = 0.1  # removal proportion
 rho = 0.1  # reaction factor
 l_s = 10  # update interval
@@ -24,13 +27,11 @@ constructOperatorList = [repair_greedy,
                          repair_greedy_cost]
 
 
-d_operator_num = len(destructOperatorList)
-c_operator_num = len(constructOperatorList)
-wDestruct = [1 for _ in range(d_operator_num)]
-wConstruct = [1 for _ in range(c_operator_num)]
+d_operator_num = len(destructOperatorList)  # 破坏算子个数
+c_operator_num = len(constructOperatorList)  # 重建算子个数
 
 
-def destruct_construct(current_solution, d_num):
+def destruct_construct(current_solution, d_num, wDestruct, wConstruct):
     destruct_index = np.random.choice(np.arange(len(wDestruct)), p=np.array(wDestruct) / sum(wDestruct))
     construct_index = np.random.choice(np.arange(len(wConstruct)), p=np.array(wConstruct) / sum(wConstruct))
     destroyed_info = destructOperatorList[destruct_index](current_solution, d_num)
@@ -39,46 +40,47 @@ def destruct_construct(current_solution, d_num):
 
 
 
-def ALNS(instance_name):
+def ALNS(instance_name, iteration_limit=100, duration=3600):
     instance = read_excel(instance_name + ".xlsx")
-    timesDestruct = [0 for _ in range(d_operator_num)]
+    timesDestruct = [0 for _ in range(d_operator_num)]       # 使用次数
     timesConstruct = [0 for _ in range(c_operator_num)]
-    totalScoreDestruct = [0 for _ in range(d_operator_num)]
+    totalScoreDestruct = [0 for _ in range(d_operator_num)]  # 总的分数
     totalScoreConstruct = [0 for _ in range(c_operator_num)]
-    wDestruct = [1 for _ in range(d_operator_num)]
-    wConstruct = [1 for _ in range(c_operator_num)]
+    wDestruct = [1 for _ in range(d_operator_num)]           # 破坏算子初始权重
+    wConstruct = [1 for _ in range(c_operator_num)]          # 重建算子初始权重
 
     solution_table = {}
 
     task_num = len(instance)
-    d_num = math.ceil(task_num * d_num_coefficient)
+    d_num = math.ceil(task_num * d_num_coefficient)  # 破坏个数
 
-    init_start = time.time()
     solution = generate_solution_nearest(instance)
-    init_end = time.time()
 
 
     solution_table[solution.hash_key] = solution
 
     current_fitness = solution.get_fitness()
+
     best_solution = solution
     best_fitness = current_fitness
     count = 0
 
     CONSTANT_T = T_coefficient
 
-    duration = task_num ** 2 * sum(Config.ROBOT_NUM_LIST) * C / 1000
-
     start_t = time.time()
 
-    # while count <= 10:
-    while time.time() - start_t <= 100:
+    while count <= iteration_limit and time.time() - start_t < duration:
+        # if time.time() - start_t > duration:
+        #     break
+
         count += 1
-        new_solution, destruct_index, construct_index = destruct_construct(solution, d_num)
+        new_solution, destruct_index, construct_index = destruct_construct(
+            solution, d_num, wDestruct, wConstruct
+        )
 
-        is_accept = False
+        # is_accept = False
 
-        is_new = False
+        is_new = False  # 是否是一个之前为探索过的解
         if new_solution.hash_key not in solution_table.keys():
             solution_table[new_solution.hash_key] = new_solution
             is_new = True
@@ -89,8 +91,8 @@ def ALNS(instance_name):
         scoreConstruct = 0
 
         if new_fitness < current_fitness:
-            is_accept = True
-            p_a = 1.0
+            # is_accept = True
+            # p_a = 1.0
             solution = new_solution
             current_fitness = new_fitness
             if new_fitness < best_fitness:
@@ -103,15 +105,15 @@ def ALNS(instance_name):
                     scoreDestruct = sigma_2
                     scoreConstruct = sigma_2
         elif new_fitness == current_fitness:
-            is_accept = True
+            # is_accept = True
             if is_new:
                 scoreDestruct = sigma_2
                 scoreConstruct = sigma_2
-            p_a = 0
+            # p_a = 0
         else:
             p_a = math.exp((current_fitness - new_fitness) / CONSTANT_T)
             if random.random() < p_a:
-                is_accept = True
+                # is_accept = True
                 solution = new_solution
                 current_fitness = new_fitness
                 if is_new:
@@ -141,20 +143,24 @@ def ALNS(instance_name):
                 wConstruct[i] = wConstruct[i] * (1 - rho) + rho * totalScoreConstruct[i] / cTime
                 totalScoreConstruct[i] = 0
                 timesConstruct[i] = 0
-    print(f"best fitness:{best_fitness}  best solution:{best_solution}")
-    # print(parse_vehicle_routes(best_solution.get_code()))
-    return best_solution
 
 
-if __name__ == "__main__":
-    instance_name = "N10_K2_M12_I5"
-    solution = ALNS(instance_name)
-    # preprocess_schedule(solution)
-    print(solution.code)
-    print(solution.get_path_map())
-    print(f"distance:{solution.distance}  tardiness:{solution.tardiness}")
-    animation_info = get_animation_info(solution)
-    print(animation_info)
-    pass
+    # fitness_optimal = RR.optimal_solution_dict[instance_name]["fitness"]
+    # if best_fitness < fitness_optimal:
+    #     RR.optimal_solution_dict[instance_name]["code"] = best_solution.code
+    #     RR.optimal_solution_dict[instance_name]["fitness"] = best_solution.fitness
+    #     RR.update_optimal_solution()
+    elapsed = time.time() - start_t
+    termination_reason = "time_limit" if elapsed >= duration else "iteration_limit"
+    return best_solution, best_fitness, elapsed, count, termination_reason
 
 
+# if __name__ == "__main__":
+#     RR.init_optimal_solution()
+#     instance_name = "N20_K2_M12_I1"
+#     solution, best_fitness, run_time = ALNS(instance_name, 100, 10)
+#     # preprocess_schedule(solution)
+#     print(solution.get_path_map())
+#     print(f"run_time:{run_time}")
+#     print(f"distance:{solution.distance}  tardiness:{solution.tardiness}")
+#     pass

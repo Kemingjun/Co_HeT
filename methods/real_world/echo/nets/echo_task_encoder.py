@@ -1,4 +1,4 @@
-﻿import math
+import math
 
 import torch
 from torch import nn
@@ -59,4 +59,3 @@ class EchoTaskEncoder(nn.Module):
         fused_embeddings = task_embeddings + gate * edge_attended
 
         return self.task_encoder(fused_embeddings)
-

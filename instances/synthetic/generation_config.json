@@ -1,0 +1,79 @@
+{
+  "dataset_id": "synthetic",
+  "sizes": [
+    10,
+    20,
+    50,
+    100
+  ],
+  "kappas": [
+    2,
+    3
+  ],
+  "count_per_cell": 100,
+  "legacy": {
+    "index_range": [
+      1,
+      20
+    ],
+    "master_seed": null
+  },
+  "extension": {
+    "index_range": [
+      21,
+      100
+    ],
+    "master_seed": 20260825,
+    "seed_derivation": "SHA256(\"cohet-r2|{master_seed}|kappa={kappa}|n={n}|i={index}\") first 8 bytes, big-endian"
+  },
+  "distribution": {
+    "coordinates": "independent Uniform[0,1), no minimum spacing",
+    "deadlines": "0.5,1.0,...,0.5n + independent Uniform[-0.2,0.2], then shuffled",
+    "processing_time": {
+      "kappa_2": [
+        [
+          0.3,
+          0.7
+        ],
+        [
+          0.8,
+          1.2
+        ]
+      ],
+      "kappa_3": [
+        [
+          0.4,
+          0.8
+        ],
+        [
+          0.6,
+          1
+        ],
+        [
+          0.8,
+          1.2
+        ]
+      ]
+    },
+    "required_robot": {
+      "kappa_2": [
+        1,
+        1
+      ],
+      "kappa_3": [
+        1,
+        1,
+        1
+      ]
+    },
+    "distance": "not computed by the instance generator"
+  },
+  "columns": [
+    "task_index",
+    "source_x",
+    "source_y",
+    "deadline",
+    "t_operation",
+    "required_robot"
+  ]
+}

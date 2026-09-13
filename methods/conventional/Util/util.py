@@ -1,11 +1,10 @@
 ﻿from Util.Config import Config
 import bisect
 import random
-import math
 import logging
 
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
-logging.basicConfig(level=logging.INFO, format=LOG_FORMAT, filename='info.log')
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 def copy_set_int(original_set):
     """
     set
@@ -122,9 +121,8 @@ def path_map2sequence_map(path_map):
 
 
 def get_distance(source_position, destination_position):
-    # distance = abs(source_position[0] - destination_position[0]) + abs(source_position[1] - destination_position[1])
-    distance = math.hypot(source_position[0] - destination_position[0], source_position[1] - destination_position[1])
-    return distance
+    # Synthetic HRSP travel distance is locked to the Manhattan metric.
+    return abs(source_position[0] - destination_position[0]) + abs(source_position[1] - destination_position[1])
 
 
 def remove_(sequence_map, path_init_task_map, task):

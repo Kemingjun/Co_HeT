@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 
 
 def compute_in_batches(f, calc_batch_size, *args, n=None):
@@ -32,4 +32,3 @@ def compute_in_batches(f, calc_batch_size, *args, n=None):
     if isinstance(all_res[0], tuple):
         return tuple(safe_cat(res_chunks, 0) for res_chunks in zip(*all_res))
     return safe_cat(all_res, 0)
-

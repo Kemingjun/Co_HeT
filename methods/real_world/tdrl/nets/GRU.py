@@ -1,9 +1,9 @@
-﻿import torch
+import torch
 import torch.nn as nn
 
 class EnvGRUUpdater(nn.Module):
     """
-     token  GRU  1  GRU
+    更新环境 token 的 GRU 模块（仅 1 个 GRU）
     """
     def __init__(self, input_dim, hidden_dim):
         super(EnvGRUUpdater, self).__init__()
@@ -20,7 +20,7 @@ class EnvGRUUpdater(nn.Module):
 
 class VehicleGRUUpdater(nn.Module):
     """
-     GRUm  GRU
+    为每辆车构建一个独立 GRU（m 个 GRU）
     """
     def __init__(self, num_vehicles, input_dim, hidden_dim):
         super(VehicleGRUUpdater, self).__init__()
@@ -45,6 +45,7 @@ class VehicleGRUUpdater(nn.Module):
         batch_size = env_context.size(0)
         hidden_dim = prev_tokens_tensor.size(-1)
 
+        # 初始化输出张量
         new_tokens_tensor = torch.zeros(batch_size, self.num_vehicles, hidden_dim, device=env_context.device)
 
         for i in range(self.num_vehicles):
@@ -57,4 +58,3 @@ class VehicleGRUUpdater(nn.Module):
             new_tokens_tensor[:, i, :] = new_token_i
 
         return new_tokens_tensor
-

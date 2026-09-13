@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import numpy as np
 from torch import nn
 import math
@@ -41,6 +41,7 @@ class MultiHeadAttention(nn.Module):
 
         self.norm_factor = 1 / math.sqrt(key_dim)  # See Attention is all you need
 
+        # parameter表示需要在训练中进行优化的参数
         self.W_query = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_key = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_val = nn.Parameter(torch.Tensor(n_heads, input_dim, val_dim))
@@ -59,7 +60,7 @@ class MultiHeadAttention(nn.Module):
         """
 
         :param q: queries (batch_size, n_query, input_dim)
-        :param h: data (batch_size, graph_size, input_dim) 
+        :param h: data (batch_size, graph_size, input_dim) 键和值
         :param mask: mask (batch_size, n_query, graph_size) or viewable as that (i.e. can be 2 dim if n_query == 1)
         Mask should contain 1 if attention is not possible (i.e. mask is negative adjacency)
         :return:
@@ -101,9 +102,11 @@ class MultiHeadAttention(nn.Module):
             elif self.attn_gate.output_mode == 'mask':
                 compatibility[gate_score.expand_as(compatibility)] = -np.inf
 
+        # # 添加 gate（需将 features 传入）
         # gate_scores = self.attn_gate(raw_features, raw_features)  # (B, N, N)
         # gate_scores = gate_scores.unsqueeze(0).expand(self.n_heads, -1, -1, -1)
         #
+        # # 加性门控（推荐）：在 logits 上加 log gate
         # compatibility = compatibility + torch.log(gate_scores + 1e-9)
 
 
@@ -239,11 +242,12 @@ class SparseGraphAttentionEncoder(nn.Module):
         # coords = input_dict["source"]  # (B, N, 2)
         # deadline = input_dict["deadline"]  # (B, N)
 
+        # 构造 raw_features: concat [x, y, deadline]
         # raw_features = torch.cat([coords, deadline.unsqueeze(-1)], dim=-1)  # (B, N, 3)
 
 
         for layer in self.layers:
-            h = layer(h, raw_features=input_dict)
+            h = layer(h, raw_features=input_dict)  # 关键改动：传入原始输入x作为raw_features
 
         return h, h.mean(dim=1)
 
@@ -308,4 +312,3 @@ class AttentionGate(nn.Module):
             return mask  # Bool mask
         else:
             return score  # Gate score for add/mul
-

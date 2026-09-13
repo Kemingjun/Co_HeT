@@ -1,4 +1,4 @@
-﻿import os
+import os
 import pickle
 
 
@@ -23,4 +23,3 @@ def load_dataset(filename):
 
     with open(check_extension(filename), 'rb') as f:
         return pickle.load(f)
-

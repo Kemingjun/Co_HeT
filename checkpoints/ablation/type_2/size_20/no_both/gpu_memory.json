@@ -1,0 +1,2815 @@
+{
+  "ablation_variant": "no_both",
+  "run_name": "ablation_no_both_no_both_2_20260516T113705",
+  "device_count": 1,
+  "epochs": [
+    {
+      "epoch": 0,
+      "epoch_duration_seconds": 318.03312397003174,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674802176,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.564453125,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422426223754883,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674802176,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.564453125,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422426223754883,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 1,
+      "epoch_duration_seconds": 477.23621106147766,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 2,
+      "epoch_duration_seconds": 484.2805323600769,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 3,
+      "epoch_duration_seconds": 489.05862402915955,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 4,
+      "epoch_duration_seconds": 489.00015568733215,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 5,
+      "epoch_duration_seconds": 488.32290744781494,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 6,
+      "epoch_duration_seconds": 496.45841884613037,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 7,
+      "epoch_duration_seconds": 495.7746772766113,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 8,
+      "epoch_duration_seconds": 485.63833713531494,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 9,
+      "epoch_duration_seconds": 487.30214071273804,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 10,
+      "epoch_duration_seconds": 486.54273867607117,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 11,
+      "epoch_duration_seconds": 492.18295907974243,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 12,
+      "epoch_duration_seconds": 490.7446415424347,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 13,
+      "epoch_duration_seconds": 488.7400870323181,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 14,
+      "epoch_duration_seconds": 485.9340789318085,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 15,
+      "epoch_duration_seconds": 487.55721831321716,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 16,
+      "epoch_duration_seconds": 484.5969069004059,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 17,
+      "epoch_duration_seconds": 486.8175187110901,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 18,
+      "epoch_duration_seconds": 484.2509055137634,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 19,
+      "epoch_duration_seconds": 477.7530698776245,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 20,
+      "epoch_duration_seconds": 475.6968369483948,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 21,
+      "epoch_duration_seconds": 478.6176884174347,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 22,
+      "epoch_duration_seconds": 479.6050319671631,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 23,
+      "epoch_duration_seconds": 479.1245787143707,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 24,
+      "epoch_duration_seconds": 476.8166329860687,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 25,
+      "epoch_duration_seconds": 474.2418990135193,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 26,
+      "epoch_duration_seconds": 471.24498224258423,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 27,
+      "epoch_duration_seconds": 471.20279574394226,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 28,
+      "epoch_duration_seconds": 471.91299653053284,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 29,
+      "epoch_duration_seconds": 472.74691557884216,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 30,
+      "epoch_duration_seconds": 468.82035303115845,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 31,
+      "epoch_duration_seconds": 468.300918340683,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 32,
+      "epoch_duration_seconds": 470.03128719329834,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 33,
+      "epoch_duration_seconds": 470.05068039894104,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 34,
+      "epoch_duration_seconds": 470.2673225402832,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 35,
+      "epoch_duration_seconds": 471.1916809082031,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 36,
+      "epoch_duration_seconds": 471.1898400783539,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 37,
+      "epoch_duration_seconds": 470.52534675598145,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 38,
+      "epoch_duration_seconds": 472.0879559516907,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 39,
+      "epoch_duration_seconds": 472.7603704929352,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 40,
+      "epoch_duration_seconds": 470.9835216999054,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 41,
+      "epoch_duration_seconds": 471.0338125228882,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 42,
+      "epoch_duration_seconds": 469.9140305519104,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 43,
+      "epoch_duration_seconds": 468.66141629219055,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 44,
+      "epoch_duration_seconds": 468.9299738407135,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 45,
+      "epoch_duration_seconds": 465.2714388370514,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 46,
+      "epoch_duration_seconds": 470.58310079574585,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 47,
+      "epoch_duration_seconds": 468.20146131515503,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 48,
+      "epoch_duration_seconds": 471.07678413391113,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 49,
+      "epoch_duration_seconds": 468.2917935848236,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 50,
+      "epoch_duration_seconds": 469.30211639404297,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 51,
+      "epoch_duration_seconds": 468.4132730960846,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 52,
+      "epoch_duration_seconds": 478.82253789901733,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 53,
+      "epoch_duration_seconds": 473.4762375354767,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 54,
+      "epoch_duration_seconds": 469.3700933456421,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 55,
+      "epoch_duration_seconds": 468.55887365341187,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 56,
+      "epoch_duration_seconds": 470.01256585121155,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 57,
+      "epoch_duration_seconds": 470.4091651439667,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 58,
+      "epoch_duration_seconds": 469.9507031440735,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 59,
+      "epoch_duration_seconds": 467.4161231517792,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 60,
+      "epoch_duration_seconds": 468.2643229961395,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 61,
+      "epoch_duration_seconds": 467.0617206096649,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 62,
+      "epoch_duration_seconds": 463.7488386631012,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 63,
+      "epoch_duration_seconds": 464.0530767440796,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 64,
+      "epoch_duration_seconds": 464.2307653427124,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 65,
+      "epoch_duration_seconds": 466.54652881622314,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 66,
+      "epoch_duration_seconds": 467.6142146587372,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 67,
+      "epoch_duration_seconds": 466.05922651290894,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 68,
+      "epoch_duration_seconds": 467.5656702518463,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 69,
+      "epoch_duration_seconds": 467.8789749145508,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 70,
+      "epoch_duration_seconds": 468.5080659389496,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 71,
+      "epoch_duration_seconds": 464.7094805240631,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 72,
+      "epoch_duration_seconds": 465.43146681785583,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 73,
+      "epoch_duration_seconds": 469.49329352378845,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 74,
+      "epoch_duration_seconds": 468.6978380680084,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 75,
+      "epoch_duration_seconds": 463.61273407936096,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 76,
+      "epoch_duration_seconds": 464.62119936943054,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 77,
+      "epoch_duration_seconds": 467.98898100852966,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 78,
+      "epoch_duration_seconds": 472.21216344833374,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 79,
+      "epoch_duration_seconds": 477.3070492744446,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 80,
+      "epoch_duration_seconds": 478.0971293449402,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 81,
+      "epoch_duration_seconds": 480.3569052219391,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 82,
+      "epoch_duration_seconds": 710.9961225986481,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 83,
+      "epoch_duration_seconds": 780.4392750263214,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 84,
+      "epoch_duration_seconds": 719.2541871070862,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 85,
+      "epoch_duration_seconds": 735.931658744812,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 86,
+      "epoch_duration_seconds": 809.4205658435822,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 87,
+      "epoch_duration_seconds": 742.0091762542725,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 88,
+      "epoch_duration_seconds": 722.2641975879669,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 89,
+      "epoch_duration_seconds": 747.3783209323883,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 90,
+      "epoch_duration_seconds": 791.6007144451141,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 91,
+      "epoch_duration_seconds": 738.6633055210114,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 92,
+      "epoch_duration_seconds": 705.3229207992554,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 93,
+      "epoch_duration_seconds": 778.7466557025909,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 94,
+      "epoch_duration_seconds": 777.2385396957397,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 95,
+      "epoch_duration_seconds": 701.2185423374176,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 96,
+      "epoch_duration_seconds": 734.9196419715881,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 97,
+      "epoch_duration_seconds": 783.104080915451,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 98,
+      "epoch_duration_seconds": 727.5704669952393,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    },
+    {
+      "epoch": 99,
+      "epoch_duration_seconds": 742.3193926811218,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_both",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 2080 Ti",
+            "max_allocated_bytes": 3674807808,
+            "max_reserved_bytes": 3783262208,
+            "max_allocated_mib": 3504.56982421875,
+            "max_reserved_mib": 3608.0,
+            "max_allocated_gib": 3.422431468963623,
+            "max_reserved_gib": 3.5234375
+          }
+        ],
+        "total_max_allocated_bytes": 3674807808,
+        "total_max_reserved_bytes": 3783262208,
+        "total_max_allocated_mib": 3504.56982421875,
+        "total_max_reserved_mib": 3608.0,
+        "total_max_allocated_gib": 3.422431468963623,
+        "total_max_reserved_gib": 3.5234375
+      }
+    }
+  ],
+  "summary": {
+    "peak_train_allocated_bytes": 3674807808,
+    "peak_train_reserved_bytes": 3783262208,
+    "peak_train_allocated_mib": 3504.56982421875,
+    "peak_train_reserved_mib": 3608.0,
+    "peak_train_allocated_gib": 3.422431468963623,
+    "peak_train_reserved_gib": 3.5234375
+  }
+}

@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import torch.nn.functional as F
 
 
@@ -6,24 +6,27 @@ class paramet_hrsp:
 
     # ROBOT_VELOCITY = 1.0  # (w.l.o.g. vehicle capacity is 1, demands should be scaled)
     #
+    # DEPOT = torch.tensor([0, 0])  # 起始点固定为[0, 0]
     #
+    # ROBOT_TYPE_NUM = 2  # 两种类型的车
     #
     # ROBOT_NUM = 12
     #
     # WEIGHT = 0.5
     #
+    # ROBOT_NUM_LIST = torch.tensor([4, 8])  # 母车两台，子车四台
 
     ROBOT_VELOCITY = 1.0  # (w.l.o.g. vehicle capacity is 1, demands should be scaled)
 
-    DEPOT = torch.tensor([0, 0])
+    DEPOT = torch.tensor([0, 0])  # 起始点固定为[0, 0]
 
-    ROBOT_TYPE_NUM = 3
+    ROBOT_TYPE_NUM = 3  # 两种类型的车
 
     ROBOT_NUM = 18
 
     WEIGHT = 0.5
 
-    ROBOT_NUM_LIST = torch.tensor([4, 6, 8])
+    ROBOT_NUM_LIST = torch.tensor([4, 6, 8])  # 母车两台，子车四台
 
     time_norm = None
 
@@ -39,4 +42,3 @@ class paramet_hrsp:
         robot_type_indices_list.append(torch.full((ROBOT_NUM_LIST[i].item(),), i, dtype=torch.long))
 
     robot_type_indices = torch.cat(robot_type_indices_list).to(device)
-

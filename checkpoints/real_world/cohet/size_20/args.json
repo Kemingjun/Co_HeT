@@ -29,8 +29,8 @@
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "CoHeT_size_20_RW_3_20260603T132938",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_cohet_n20_seed_1234_3_20260902T160445",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
@@ -39,5 +39,5 @@
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_3_20/CoHeT_size_20_RW_3_20260603T132938"
+ "save_dir": "outputs/hrsp_3_20/industrial_cohet_n20_seed_1234_3_20260902T160445"
 }

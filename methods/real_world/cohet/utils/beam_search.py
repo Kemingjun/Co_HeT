@@ -1,4 +1,4 @@
-﻿import time
+import time
 import torch
 from typing import NamedTuple
 from utils.lexsort import torch_lexsort
@@ -216,4 +216,3 @@ class CachedLookup(object):
             self.current = self.orig[key]
 
         return self.current
-

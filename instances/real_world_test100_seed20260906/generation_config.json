@@ -1,0 +1,65 @@
+{
+  "dataset_id": "real_world_test100_seed20260906",
+  "sizes": [
+    10,
+    20,
+    30,
+    40
+  ],
+  "count_per_size": 100,
+  "master_seed": 20260906,
+  "seed_formula": "20260906 + size * 1000 + index",
+  "generation_config": {
+    "ROBOT_TYPE_NUM": 3,
+    "ROBOT_NUM": 16,
+    "ROBOT_NUM_LIST": [
+      4,
+      8,
+      4
+    ],
+    "LEFT_SUPPLY_X": -20,
+    "RIGHT_SUPPLY_X": 120,
+    "LEFT_HANDOVER_X": 0,
+    "RIGHT_HANDOVER_X": 100,
+    "STATION_Y_SLOTS": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      95
+    ],
+    "DELIVERY_X_SLOTS": [
+      20,
+      40,
+      60,
+      80
+    ],
+    "DEADLINE_BASE": 300,
+    "DEADLINE_STEP": 40,
+    "DEADLINE_NOISE": 40
+  },
+  "columns": [
+    "task_index",
+    "supply_x",
+    "supply_y",
+    "handover_x",
+    "handover_y",
+    "delivery_x",
+    "delivery_y",
+    "deadline"
+  ]
+}

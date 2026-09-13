@@ -21,7 +21,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--val_size", type=int, default=10000)
     parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--results_dir", default=str(REPO_ROOT / "results" / "eval"))
-    parser.add_argument("--real_world", action="store_true")
+    parser.add_argument("--real_world", action="store_true", help="Use industrial simulation models and test instances.")
     parser.add_argument("--no_cuda", action="store_true")
     parser.add_argument("--no_progress_bar", action="store_true")
     parser.add_argument("-f", "--force", action="store_true")

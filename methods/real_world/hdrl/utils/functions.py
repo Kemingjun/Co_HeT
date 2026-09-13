@@ -1,4 +1,4 @@
-﻿import warnings
+import warnings
 
 import torch
 import numpy as np
@@ -11,8 +11,11 @@ import torch.nn.functional as F
 
 
 def load_problem(name):
-    from problems import HRSP
-    problem = {        'hrsp': HRSP
+    from problems import CVRP, SDVRP, HRSP
+    problem = {
+        'cvrp': CVRP,
+        'sdvrp': SDVRP,
+        'hrsp': HRSP
     }.get(name, None)
     assert problem is not None, "Currently unsupported problem: {}!".format(name)
     return problem
@@ -201,5 +204,3 @@ def sample_many(inner_func, input, batch_rep=1, iter_rep=1):
     minpis = pis[torch.arange(pis.size(0), out=argmincosts.new()), argmincosts]
 
     return minpis, mincosts
-
-

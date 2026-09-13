@@ -1,0 +1,55 @@
+{
+  "dataset_id": "decoder_scaling",
+  "sizes": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "kappas": [
+    2
+  ],
+  "count_per_cell": 100,
+  "index_range": [
+    1,
+    100
+  ],
+  "master_seed": 20260825,
+  "seed_derivation": "SHA256(\"cohet-r2|20260825|kappa=2|n={n}|i={index}\") first 8 bytes, big-endian",
+  "reused_synthetic_sizes": [
+    20,
+    50
+  ],
+  "generated_sizes": [
+    30,
+    40
+  ],
+  "distribution": {
+    "coordinates": "independent Uniform[0,1)",
+    "deadlines": "0.5j + Uniform[-0.2,0.2], then shuffled",
+    "processing_time": [
+      [
+        0.3,
+        0.7
+      ],
+      [
+        0.8,
+        1.2
+      ]
+    ],
+    "required_robot": [
+      1,
+      1
+    ],
+    "distance": "Manhattan, computed by evaluator",
+    "route_semantics": "open"
+  },
+  "columns": [
+    "task_index",
+    "source_x",
+    "source_y",
+    "deadline",
+    "t_operation",
+    "required_robot"
+  ]
+}

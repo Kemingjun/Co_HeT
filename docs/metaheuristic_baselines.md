@@ -8,10 +8,10 @@ This release includes the conventional baselines used for comparison with Co-HeT
 - **DABC**: discrete artificial bee colony.
 - **DIWO**: discrete invasive weed optimization.
 
-The packaged code is adapted from the experiment implementation used in the paper. Runtime limits, stopping criteria, and instance choices should be set consistently with the reported experimental protocol when reproducing tables.
+The [baseline guide](../methods/conventional/README.md) specifies operator selection, budget parameters, stopping conditions, repetitions and Gurobi settings.
 
 Example:
 
 ```bash
-python scripts/run_conventional.py --solver alns N20_K2_M12_I1
+conda run -n my310env python scripts/run_conventional.py --solver alns N20_K2_M12_I1 --dry-run
 ```

@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 from torch import nn
 import torch.nn.functional as F
 
@@ -65,4 +65,3 @@ class TopKMoELinear(TopKMoEBase):
         x_flat = x.contiguous().view(-1, self.input_dim)
         expert_outputs = [expert(x_flat) for expert in self.experts]
         return self._route(x, expert_outputs)
-

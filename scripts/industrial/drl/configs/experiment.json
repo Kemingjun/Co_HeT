@@ -1,0 +1,47 @@
+{
+  "contract_version": "industrial-travel-time-v1",
+  "sizes": [
+    10,
+    20,
+    30,
+    40
+  ],
+  "instances_per_size": 100,
+  "instance_start": 1,
+  "instance_end": 100,
+  "dataset_id": "real_world_test100_seed20260906",
+  "methods": [
+    "cohet",
+    "am",
+    "mvmoe",
+    "hdrl",
+    "tdrl",
+    "echo"
+  ],
+  "robot_counts": [
+    4,
+    8,
+    4
+  ],
+  "distance_metric": "manhattan",
+  "open_path": true,
+  "carrier_velocity": 1.2,
+  "forklift_velocity": 1.0,
+  "objective": {
+    "travel_time_weight": 0.5,
+    "tardiness_weight": 0.5
+  },
+  "training_seed": 1234,
+  "evaluation_seed": 20260825,
+  "training": {
+    "epochs": 100,
+    "batch_size": 1024,
+    "epoch_size": 1280000,
+    "validation_size": 10000
+  },
+  "decode": {
+    "mode": "sampling",
+    "width": 1280,
+    "repetitions": 1
+  }
+}

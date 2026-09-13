@@ -27,12 +27,12 @@
  "bl_alpha": 0.05,
  "bl_warmup_epochs": 1,
  "eval_batch_size": 1024,
- "checkpoint_encoder": true,
+ "checkpoint_encoder": false,
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "real_world_ECHO_size_40_20260628T230537",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_echo_n40_seed_1234_20260902T195529",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
@@ -41,5 +41,5 @@
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_40/real_world_ECHO_size_40_20260628T230537"
+ "save_dir": "outputs/hrsp_40/industrial_echo_n40_seed_1234_20260902T195529"
 }

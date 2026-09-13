@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import numpy as np
 from torch import nn
 import math
@@ -6,7 +6,7 @@ from problems.hrsp.paramet_hrsp import paramet_hrsp
 
 class SkipConnection(nn.Module):
     """
-    
+    残差
     """
     def __init__(self, module):
         super(SkipConnection, self).__init__()
@@ -14,8 +14,8 @@ class SkipConnection(nn.Module):
 
     def forward(self, x, y=None):
         if y is not None:
-            return x + self.module(x, y)
-        return x + self.module(x)
+            return x + self.module(x, y)  # 支持双输入
+        return x + self.module(x)  # 单输入兼容
 
 
 class MultiHeadAttention(nn.Module):
@@ -42,6 +42,7 @@ class MultiHeadAttention(nn.Module):
 
         self.norm_factor = 1 / math.sqrt(key_dim)  # See Attention is all you need
 
+        # parameter表示需要在训练中进行优化的参数
         self.W_query = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_key = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_val = nn.Parameter(torch.Tensor(n_heads, input_dim, val_dim))
@@ -62,7 +63,7 @@ class MultiHeadAttention(nn.Module):
         """
 
         :param q: queries (batch_size, n_query, input_dim)
-        :param h: data (batch_size, graph_size, input_dim) 
+        :param h: data (batch_size, graph_size, input_dim) 键和值
         :param mask: mask (batch_size, n_query, graph_size) or viewable as that (i.e. can be 2 dim if n_query == 1)
         Mask should contain 1 if attention is not possible (i.e. mask is negative adjacency)
         :return:
@@ -186,9 +187,11 @@ class MultiHeadAttentionLayer(nn.Module):
         self.norm2 = Normalization(embed_dim, normalization=normalization)
 
     def forward(self, x, y=None):
-        h = self.attention(x, y)
+        # 注意力层（支持交叉注意力）
+        h = self.attention(x, y)  # 如果 y=None，则退化为自注意力
         h = self.norm1(h)
 
+        # 前馈网络（仅处理 h）
         h = self.ffn(h)
         h = self.norm2(h)
         return h
@@ -220,6 +223,7 @@ class HeterogeneousRobotAttentionEncoder(nn.Module):
     def forward(self, x, mask=None):
         assert mask is None, "TODO mask not yet supported!"
 
+        # TODO 如果不止两种robot怎么办
         assert paramet_hrsp.ROBOT_TYPE_NUM == 2, "TODO mask not yet supported!"
 
         x = self.robot_attention_global_input(x)
@@ -246,5 +250,4 @@ class HeterogeneousRobotAttentionEncoder(nn.Module):
             robot_embedding,  # (batch_size, graph_size, embed_dim)
             robot_embedding.mean(dim=1),  # average to get embedding of graph, (batch_size, embed_dim)
         )
-
 

@@ -2,13 +2,6 @@
 import pickle
 from pathlib import Path
 
-
-def get_instance_root():
-    configured = os.environ.get("COHET_INSTANCE_DIR")
-    if configured:
-        return Path(configured)
-    return Path(__file__).resolve().parent.parent.parent / "Instance"
-
 import torch
 from torch.utils.data import Dataset
 
@@ -102,13 +95,13 @@ def make_random_instances(size, num_samples, generator=None):
 
     return [
         {
-            "supply_raw": supply_raw[i].float(),
-            "handover_raw": handover_raw[i].float(),
-            "delivery_raw": delivery_raw[i].float(),
+            "supply_raw": supply_raw[i].to(dtype=torch.float64),
+            "handover_raw": handover_raw[i].to(dtype=torch.float64),
+            "delivery_raw": delivery_raw[i].to(dtype=torch.float64),
             "supply_norm": supply_norm[i].float(),
             "handover_norm": handover_norm[i].float(),
             "delivery_norm": delivery_norm[i].float(),
-            "deadline": deadline[i].float(),
+            "deadline": deadline[i].to(dtype=torch.float64),
             "required_robot": required_robot[i],
         }
         for i in range(num_samples)
@@ -154,20 +147,27 @@ def load_instances(filename, offset, num_samples):
         return [make_instance_from_tuple(args) for args in data[offset:offset + num_samples]]
 
     if path.suffix == ".xlsx":
-        return [load_excel_file(resolve_instance_file(path.name))]
+        return [load_excel_file(resolve_instance_file(path))]
 
-    base_dir = get_instance_root() / filename
-    files = sorted(base_dir.glob("*.xlsx"))[offset:offset + num_samples]
+    root = get_instance_root()
+    base_dir = root / path
+    files = list(base_dir.glob("*.xlsx")) if base_dir.is_dir() else list(root.glob(f"{filename}_I*.xlsx"))
+    if not files:
+        raise FileNotFoundError(f"No industrial instances found for {filename}")
+    files = sorted(files, key=lambda item: int(item.stem.rsplit("_I", 1)[1]))
+    files = files[offset:offset + num_samples]
     return [load_excel_file(file_path) for file_path in files]
 
 
+def get_instance_root():
+    default = Path(__file__).resolve().parents[5] / "instances" / "real_world_test100_seed20260906"
+    return Path(os.environ.get("COHET_INSTANCE_DIR", default))
+
+
 def resolve_instance_file(filename):
-    local_path = get_instance_root() / filename
-    if local_path.exists():
-        return local_path
-    conventional_path = Path(__file__).resolve().parents[3] / "real-world-ALNS-Gurobi" / "Instance" / filename
-    if conventional_path.exists():
-        return conventional_path
+    package_path = get_instance_root() / filename
+    if package_path.exists():
+        return package_path
     raise FileNotFoundError(filename)
 
 
@@ -186,36 +186,34 @@ def load_excel_file(file_path):
     ]
     missing = [col for col in required_columns if col not in df.columns]
     if missing:
-        raise ValueError(f"Missing real-world columns in {file_path}: {missing}")
-    supply_raw = torch.tensor(df[["supply_x", "supply_y"]].values, dtype=torch.float)
-    handover_raw = torch.tensor(df[["handover_x", "handover_y"]].values, dtype=torch.float)
-    delivery_raw = torch.tensor(df[["delivery_x", "delivery_y"]].values, dtype=torch.float)
-    deadline = torch.tensor(df["deadline"].values, dtype=torch.float)
+        raise ValueError(f"Missing industrial simulation columns in {file_path}: {missing}")
+    supply_raw = torch.tensor(df[["supply_x", "supply_y"]].values, dtype=torch.float64)
+    handover_raw = torch.tensor(df[["handover_x", "handover_y"]].values, dtype=torch.float64)
+    delivery_raw = torch.tensor(df[["delivery_x", "delivery_y"]].values, dtype=torch.float64)
+    deadline = torch.tensor(df["deadline"].values, dtype=torch.float64)
     return make_instance_from_tensors(supply_raw, handover_raw, delivery_raw, deadline)
 
 
 def make_instance_from_tuple(args):
     supply_raw, handover_raw, delivery_raw, deadline, *_ = args
     return make_instance_from_tensors(
-        torch.tensor(supply_raw, dtype=torch.float),
-        torch.tensor(handover_raw, dtype=torch.float),
-        torch.tensor(delivery_raw, dtype=torch.float),
-        torch.tensor(deadline, dtype=torch.float),
+        torch.tensor(supply_raw, dtype=torch.float64),
+        torch.tensor(handover_raw, dtype=torch.float64),
+        torch.tensor(delivery_raw, dtype=torch.float64),
+        torch.tensor(deadline, dtype=torch.float64),
     )
 
 
 def make_instance_from_tensors(supply_raw, handover_raw, delivery_raw, deadline):
     required_robot = torch.ones(supply_raw.size(0), paramet_hrsp.ROBOT_TYPE_NUM, dtype=torch.float)
     return {
-        "supply_raw": supply_raw.float(),
-        "handover_raw": handover_raw.float(),
-        "delivery_raw": delivery_raw.float(),
+        "supply_raw": supply_raw.to(dtype=torch.float64),
+        "handover_raw": handover_raw.to(dtype=torch.float64),
+        "delivery_raw": delivery_raw.to(dtype=torch.float64),
         "supply_norm": normalize_xy(supply_raw),
         "handover_norm": normalize_xy(handover_raw),
         "delivery_norm": normalize_xy(delivery_raw),
-        "deadline": deadline.float(),
+        "deadline": deadline.to(dtype=torch.float64),
         "required_robot": required_robot,
     }
-
-
 

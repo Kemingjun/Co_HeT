@@ -51,7 +51,7 @@ class AttentionModel(nn.Module):
 
         self.problem = problem
         self.n_heads = n_heads
-        self.checkpoint_encoder = checkpoint_encoder
+        self.checkpoint_encoder = checkpoint_encoder  # 鐢ㄤ簬鑺傜渷鏄惧瓨锛圙PU memory锛?鐨勬妧鏈€?
         self.shrink_size = shrink_size
 
 
@@ -77,7 +77,7 @@ class AttentionModel(nn.Module):
 
 
 
-        self.graph_init_linear = nn.Linear(node_dim, embedding_dim, bias=False)
+        self.graph_init_linear = nn.Linear(node_dim, embedding_dim, bias=False)  # 杈撳叆鐗瑰緛缁村害: node_dim 鈥? 杈撳嚭鐗瑰緛缁村害: embedding_dim
 
         self.graph_embedder = GraphAttentionEncoder(
             n_heads=n_heads,
@@ -86,6 +86,7 @@ class AttentionModel(nn.Module):
             normalization=normalization
         )
 
+        # 鐩墠鍥剧殑娉ㄦ剰鍔涘拰Robot鐨勬敞鎰忓姏鏄浉鍚岀殑
         self.robot_embedder = RobotAttentionEncoder(
             n_heads=n_heads,
             embed_dim=embedding_dim,
@@ -95,7 +96,7 @@ class AttentionModel(nn.Module):
 
 
         """
-        robot_embedderquery
+        璁や负涓ゅrobot_embedder鐨勫姛鑳戒笉鍚岋紝涓婇潰鐨勬槸涓轰簡閫夋嫨浠诲姟浣滀负query鐨勪竴閮ㄥ垎锛岃€屼笅闈㈢殑鏄负浜嗛€夋嫨杞﹁締
         """
         self.robot_type_embedder = RobotTypePromptEncoder(
             n_heads=n_heads,
@@ -145,6 +146,7 @@ class AttentionModel(nn.Module):
         node_embeddings, graph_embedding = self.graph_embedder(self.graph_init_embed(input))
 
 
+        # 姝ゅ鐨刲og_p宸茬粡鏄搴攑i鐨刲og_p浜?
         _log_p, pi, cost, distance, tardiness = self._inner(input, node_embeddings, graph_embedding)
 
         # cost, mask = self.problem.get_costs(input, pi)
@@ -183,27 +185,31 @@ class AttentionModel(nn.Module):
             input['supply_norm'],
             input['handover_norm'],
             input['delivery_norm'],
-            input['deadline'][:, :, None] / paramet_hrsp.time_norm
+            input['deadline'][:, :, None].to(dtype=input['supply_norm'].dtype) / paramet_hrsp.time_norm
             ), dim=-1)
 
         # prompt_info = input['operation_time']
         return self.graph_init_linear(node_info)
 
     def robot_init_embed(self, state):
+        # TODO 鐙儹缂栫爜閮ㄥ垎鏄亽瀹氱殑
+        # TODO 褰掍竴鍖栨柟娉曪紝scale锛宭ayernorm锛宐atchnorm
         assert paramet_hrsp.time_norm is not None, 'paramet_hrsp.time_norm is None'
         device = state.cur_coord.device
         robot_init_info = torch.cat((
             state.cur_coord,
-            state.cur_time.unsqueeze(-1) / paramet_hrsp.time_norm,
-            paramet_hrsp.robot_one_hot.to(state.cur_coord.device).unsqueeze(0).expand(state.cur_coord.size(0), -1, -1)
+            state.cur_time.unsqueeze(-1).to(dtype=state.cur_coord.dtype) / paramet_hrsp.time_norm,
+            paramet_hrsp.robot_one_hot.unsqueeze(0).expand(state.cur_coord.size(0), -1, -1).to(device)
         ), -1)
         return self.robot_init_linear(robot_init_info)
 
     def robot_update_embed(self, state):
+        # TODO 鐙儹缂栫爜閮ㄥ垎鏄亽瀹氱殑
+        # TODO 褰掍竴鍖栨柟娉曪紝scale锛宭ayernorm锛宐atchnorm
         assert paramet_hrsp.time_norm is not None, 'paramet_hrsp.time_norm is None'
         robot_init_info = torch.cat((
             state.cur_coord,
-            state.cur_time.unsqueeze(-1) / paramet_hrsp.time_norm,
+            state.cur_time.unsqueeze(-1).to(dtype=state.cur_coord.dtype) / paramet_hrsp.time_norm,
         ), -1)
         B, m, f = robot_init_info.size()  # 1024, 12, 3
         C_en_t_info = robot_init_info.reshape(B, m * f)
@@ -245,7 +251,8 @@ class AttentionModel(nn.Module):
 
             selected_robot_one_hot, robot_selected, robot_log_p, selected_robots_embedding_list = self.robot_decision(robot_embeddings, env_context)
 
-            _robot_log_p = robot_log_p.squeeze(1)
+            _robot_log_p = robot_log_p.squeeze(1)  # 鐜板湪褰㈢姸鏄?(1024, 6)
+            # 2. 鏇挎崲 -1 涓?0锛堥伩鍏?gather 瓒婄晫锛屽悗缁細灞忚斀锛?
             selected_robot_log_p = torch.gather(
                 _robot_log_p,
                 dim=1,
@@ -281,6 +288,7 @@ class AttentionModel(nn.Module):
             sequences.append(action)
 
             # robot_embeddings, robot_embd_sum = self.robot_embedder(self.robot_init_embed(state))
+            # GRU鏇存柊
             C_en_t_info = self.robot_update_embed(state)
             C_en_t = self.context_update_linear(C_en_t_info)
             # robot_states_mean = robot_states.mean(dim=1)
@@ -291,11 +299,11 @@ class AttentionModel(nn.Module):
 
 
             i += 1
-        sum_length = state.length
-        cost = sum_length * paramet_hrsp.WEIGHT + state.tardiness * (1 - paramet_hrsp.WEIGHT)
+        sum_travel_time = state.travel_time
+        cost = sum_travel_time * paramet_hrsp.WEIGHT + state.tardiness * (1 - paramet_hrsp.WEIGHT)
 
         # Collected lists, return Tensor
-        return torch.stack(outputs, 1), torch.stack(sequences, 1), cost, sum_length, state.tardiness
+        return torch.stack(outputs, 1), torch.stack(sequences, 1), cost, sum_travel_time, state.tardiness
 
 
     def sample_many(self, _input, batch_rep=1, iter_rep=1):
@@ -370,6 +378,7 @@ class AttentionModel(nn.Module):
         log_p, glimpse = self._one_to_many_logits(query, glimpse_K, glimpse_V, logit_K, mask)
 
         # self.last_glimpse = glimpse
+        # 灏?logits 杞崲涓?log-probability
         if normalize:
             log_p = torch.log_softmax(log_p / self.temp, dim=-1)
 
@@ -473,6 +482,7 @@ class AttentionModel(nn.Module):
         heads = torch.matmul(torch.softmax(compatibility, dim=-1), glimpse_V)
 
         # Project to get glimpse/updated context node embedding (batch_size, num_steps, embedding_dim)
+        # 姣忎竴涓猙atch锛岀敓鎴愪竴涓猤limpse锛屽褰撳墠鐨刢ontext鐪嬩簡涓€鐪煎緱鍑虹殑
         glimpse = self.project_out(
             heads.permute(1, 2, 3, 0, 4).contiguous().view(-1, num_steps, 1, self.n_heads * val_size))
 
@@ -484,6 +494,7 @@ class AttentionModel(nn.Module):
         # Batch matrix multiplication to compute logits (batch_size, num_steps, graph_size)
         # logits = 'compatibility'
 
+        # 鍗曞ご鎿嶄綔
         logits = torch.matmul(final_Q, logit_K.transpose(-2, -1)).squeeze(-2) / math.sqrt(final_Q.size(-1))
 
         # From the logits compute the probabilities by clipping, masking and softmax
@@ -513,6 +524,7 @@ class AttentionModel(nn.Module):
         heads = torch.matmul(torch.softmax(compatibility, dim=-1), glimpse_V)
 
         # Project to get glimpse/updated context node embedding (batch_size, num_steps, embedding_dim)
+        # 姣忎竴涓猙atch锛岀敓鎴愪竴涓猤limpse锛屽褰撳墠鐨刢ontext鐪嬩簡涓€鐪煎緱鍑虹殑
         glimpse = self.project_out_robot(
             heads.permute(1, 2, 3, 0, 4).contiguous().view(-1, num_steps, 1, self.n_heads * val_size))
 
@@ -523,6 +535,7 @@ class AttentionModel(nn.Module):
         # Batch matrix multiplication to compute logits (batch_size, num_steps, graph_size)
         # logits = 'compatibility'
 
+        # 鍗曞ご鎿嶄綔
         logits = torch.matmul(final_Q, logit_K.transpose(-2, -1)).squeeze(-2) / math.sqrt(final_Q.size(-1))
 
         # From the logits compute the probabilities by clipping, masking and softmax
@@ -537,12 +550,11 @@ class AttentionModel(nn.Module):
     def _make_heads(self, v, num_steps=None):
         assert num_steps is None or v.size(1) == 1 or v.size(1) == num_steps
 
+        # 璋冩暣缁村害锛歳eshape 鎴愬澶存牸寮?
         return (
             v.contiguous().view(v.size(0), v.size(1), v.size(2), self.n_heads, -1)
             .expand(v.size(0), v.size(1) if num_steps is None else num_steps, v.size(2), self.n_heads, -1)
             .permute(3, 0, 1, 2, 4)  # (n_heads, batch_size, num_steps, graph_size, head_dim)
         )
-
-
 
 

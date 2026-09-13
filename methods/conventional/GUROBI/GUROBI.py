@@ -1,248 +1,392 @@
-﻿import sys
-import os
-import pandas as pd
-current_dir = os.path.dirname(os.path.abspath(__file__))
+"""Co-HeT Gurobi model with package-local runtime configuration.
 
-root_dir = os.path.dirname(current_dir)
+Index 0 represents two zero-cost virtual nodes sharing one index: arcs 0->task
+leave the virtual source, arcs task->0 enter the virtual sink, and x[0,0,r]
+represents an unused robot. No physical return-to-depot distance or time is
+included. Constraints c0-c14 define the formulation.
+"""
 
-sys.path.append(root_dir)
+from __future__ import annotations
 
-from gurobipy import *
-from Util.load_data import read_excel
-from Util.util import *
-from Util.Solution import Solution
+import math
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
 
+import gurobipy as gp
+from gurobipy import GRB
 
-def build_model(instance_name, results=None):
-    if results == None:
-        results = {}
-
-    result = {}
-    LARGE = 100
-    logging.info(f"---------------------------- {instance_name} start ----------------------------")
-    logging.info(f"instance: {instance_name}")
-    print(f"---------------------------- {instance_name} start ----------------------------")
-    print(f"instance: {instance_name}")
-    instance = read_excel(instance_name)
-
-    task_num = len(instance)
-
-    x_ijr_index = {}  # edge
-    A_ik_index = {}
-    C_ik_index = {}
-    S_i_index = {}
-    F_i_index = {}
-    T_i_index = {}
+from instance_io import Instance
+from GUROBI.model_config import BIG_M, OBJECTIVE_TOLERANCE, RobotConfig, robot_config
 
 
-    distance_map = {}
-    for i in range(task_num + 1):
-        for j in range(task_num + 1):
-            if i == 0:
-                i_position = [0, 0]
-            else:
-                i_position = [instance[i - 1][1], instance[i - 1][2]]
-            if j == 0:
-                j_position = [0, 0]
-            else:
-                j_position = [instance[j - 1][1], instance[j - 1][2]]
+@dataclass
+class ModelArtifacts:
+    model: gp.Model
+    instance: Instance
+    config: RobotConfig
+    x: gp.tupledict
+    arrival: gp.tupledict
+    completion: gp.tupledict
+    start: gp.tupledict
+    finish: gp.tupledict
+    task_tardiness: gp.tupledict
+    distance_var: gp.Var
+    tardiness_var: gp.Var
+    distance_map: dict[tuple[int, int], float]
+    big_m: float
 
-            distance_map[i, j] = get_distance(i_position, j_position)
 
-    for i in range(0, task_num + 1):
-        for k in range(1, Config.ROBOT_TYPE_NUM + 1):
-            A_ik_index[i, k] = 0
-            C_ik_index[i, k] = 0
-        S_i_index[i] = 0
-        F_i_index[i] = 0
-        T_i_index[i] = 0
+def manhattan(a: tuple[float, float], b: tuple[float, float]) -> float:
+    return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
-    for i in range(task_num + 1):
-        for j in range(task_num + 1):
-            for r in range(1, Config.ROBOT_NUM + 1):
-                x_ijr_index[i, j, r] = 0
 
-    model = Model()
-    x = model.addVars(x_ijr_index.keys(), vtype=GRB.BINARY, name='x')
-    A = model.addVars(A_ik_index.keys(), vtype=GRB.CONTINUOUS, name='A')
-    C = model.addVars(C_ik_index.keys(), vtype=GRB.CONTINUOUS, name='C')
-    S = model.addVars(S_i_index.keys(), vtype=GRB.CONTINUOUS, name='S')
-    F = model.addVars(F_i_index.keys(), vtype=GRB.CONTINUOUS, name='F')
-    T = model.addVars(T_i_index.keys(), vtype=GRB.CONTINUOUS, name='T')
+def _position(instance: Instance, index: int) -> tuple[float, float]:
+    if index == 0:
+        return (0.0, 0.0)
+    task = instance.tasks[index - 1]
+    return (task.x, task.y)
 
-    distance = model.addVar(vtype=GRB.CONTINUOUS, name='distance')
-    tardiness = model.addVar(vtype=GRB.CONTINUOUS, name='tardiness')
 
-    model.addConstr(distance == quicksum(
-        x[i, j, r] * distance_map[i, j] for i in range(task_num + 1) for j in range(1, task_num + 1) for r in range(1, Config.ROBOT_NUM + 1)
-    ))
-    model.addConstr(tardiness == quicksum(T[i] for i in range(1, task_num + 1)))
+def build_model(
+    instance: Instance,
+    *,
+    time_limit_s: int,
+    mip_gap: float,
+    threads: int,
+    seed: int,
+    log_file: Path,
+    log_to_console: bool = False,
+) -> ModelArtifacts:
+    if time_limit_s <= 0 or threads <= 0 or mip_gap < 0:
+        raise ValueError("Invalid Gurobi limits")
+    config = robot_config(instance.kappa)
+    task_num = instance.n
+    distance_map = {
+        (i, j): manhattan(_position(instance, i), _position(instance, j))
+        for i in range(task_num + 1)
+        for j in range(task_num + 1)
+    }
 
-    model.setObjective(distance * Config.WEIGHT + tardiness * (1 - Config.WEIGHT), GRB.MINIMIZE)
+    model = gp.Model(f"cohet_k{instance.kappa}_n{instance.n}")
+    x = model.addVars(
+        (
+            (i, j, r)
+            for i in range(task_num + 1)
+            for j in range(task_num + 1)
+            for r in range(1, config.robot_num + 1)
+        ),
+        vtype=GRB.BINARY,
+        name="x",
+    )
+    time_keys = (
+        (i, k)
+        for i in range(task_num + 1)
+        for k in range(1, instance.kappa + 1)
+    )
+    arrival = model.addVars(list(time_keys), vtype=GRB.CONTINUOUS, name="A")
+    completion = model.addVars(
+        (
+            (i, k)
+            for i in range(task_num + 1)
+            for k in range(1, instance.kappa + 1)
+        ),
+        vtype=GRB.CONTINUOUS,
+        name="C",
+    )
+    start = model.addVars(range(task_num + 1), vtype=GRB.CONTINUOUS, name="S")
+    finish = model.addVars(range(task_num + 1), vtype=GRB.CONTINUOUS, name="F")
+    task_tardiness = model.addVars(
+        range(task_num + 1), vtype=GRB.CONTINUOUS, name="T"
+    )
+    distance_var = model.addVar(vtype=GRB.CONTINUOUS, name="distance")
+    tardiness_var = model.addVar(vtype=GRB.CONTINUOUS, name="tardiness")
+
+    model.addConstr(
+        distance_var
+        == gp.quicksum(
+            x[i, j, r] * distance_map[i, j]
+            for i in range(task_num + 1)
+            for j in range(1, task_num + 1)
+            for r in range(1, config.robot_num + 1)
+        ),
+        "distance_total",
+    )
+    model.addConstr(
+        tardiness_var == gp.quicksum(task_tardiness[i] for i in range(1, task_num + 1)),
+        "tardiness_total",
+    )
+    model.setObjective(0.5 * distance_var + 0.5 * tardiness_var, GRB.MINIMIZE)
+
+    # Constraints c0-c14.
     for i in range(1, task_num + 1):
-        for j in range(1, task_num + 1):
-            for r in range(1, Config.ROBOT_NUM + 1):
-                if i == j:
-                    model.addConstr(x[i, j, r] == 0, f"c0_{i}_{j}_{r}")
-    for type_index in Config.TYPE_LIST:
-        # for r in range(type_index[0], type_index[1]):
-        for j in range(1, task_num + 1):
-            model.addConstr(quicksum(x[i, j, r] for i in range(0, task_num + 1) for r in range(type_index[0], type_index[1])) == 1, f"c1_{j}_{type_index}")
+        for r in range(1, config.robot_num + 1):
+            model.addConstr(x[i, i, r] == 0, f"c0_{i}_{i}_{r}")
 
-    for type_index in Config.TYPE_LIST:
-        for i in range(1, task_num + 1):
-            model.addConstr(quicksum(x[i, j, r] for j in range(0, task_num + 1) for r in range(type_index[0], type_index[1])) == 1, f"c2_{i}_{type_index}")
-    for j in range(1, task_num + 1):
-        for r in range(1, Config.ROBOT_NUM + 1):
+    for k, (robot_start, robot_end) in enumerate(config.type_list, start=1):
+        for j in range(1, task_num + 1):
             model.addConstr(
-                (quicksum(x[i, j, r] for i in range(0, task_num + 1)) - quicksum(x[j, i, r] for i in range(0, task_num + 1))) == 0,
-                f'c3_{j}_{r}'
+                gp.quicksum(
+                    x[i, j, r]
+                    for i in range(task_num + 1)
+                    for r in range(robot_start, robot_end)
+                )
+                == 1,
+                f"c1_{j}_{k}",
+            )
+        for i in range(1, task_num + 1):
+            model.addConstr(
+                gp.quicksum(
+                    x[i, j, r]
+                    for j in range(task_num + 1)
+                    for r in range(robot_start, robot_end)
+                )
+                == 1,
+                f"c2_{i}_{k}",
             )
 
-    # for r in range(1, Config.ROBOT_NUM + 1):
-    #     model.addConstr(quicksum(x[0, i, r] for i in range(1, task_num + 1)) == quicksum(x[i, 0, r] for i in range(1, task_num + 1)),
-    #                     f'c4_{r}')
-    for r in range(1, Config.ROBOT_NUM + 1):
-        model.addConstr(quicksum(x[0, i, r] for i in range(0, task_num + 1)) == 1,
-                        f'c5_{r}')
+    for j in range(1, task_num + 1):
+        for r in range(1, config.robot_num + 1):
+            model.addConstr(
+                gp.quicksum(x[i, j, r] for i in range(task_num + 1))
+                - gp.quicksum(x[j, i, r] for i in range(task_num + 1))
+                == 0,
+                f"c3_{j}_{r}",
+            )
 
-    for r in range(1, Config.ROBOT_NUM + 1):
-        model.addConstr(quicksum(x[i, 0, r] for i in range(0, task_num + 1)) == 1,
-                        f'c6_{r}')
-    for k in range(1, Config.ROBOT_TYPE_NUM + 1):
-        model.addConstr(C[0, k] == 0, f'c7_{k}')
-    for _k, type_index in enumerate(Config.TYPE_LIST):
-        k = _k + 1
-        for r in range(type_index[0], type_index[1]):
+    for r in range(1, config.robot_num + 1):
+        model.addConstr(
+            gp.quicksum(x[0, i, r] for i in range(task_num + 1)) == 1,
+            f"c5_{r}",
+        )
+        model.addConstr(
+            gp.quicksum(x[i, 0, r] for i in range(task_num + 1)) == 1,
+            f"c6_{r}",
+        )
+
+    for k in range(1, instance.kappa + 1):
+        model.addConstr(completion[0, k] == 0, f"c7_{k}")
+
+    for k, (robot_start, robot_end) in enumerate(config.type_list, start=1):
+        for r in range(robot_start, robot_end):
             for j in range(1, task_num + 1):
-                for i in range(0, task_num + 1):
-                    model.addConstr(C[i, k] + distance_map[i, j] - LARGE * (1 - x[i, j, r]) <= A[j, k], f"c8_{k}_{r}_{j}_{i}")
+                for i in range(task_num + 1):
+                    model.addConstr(
+                        completion[i, k]
+                        + distance_map[i, j]
+                        - BIG_M * (1 - x[i, j, r])
+                        <= arrival[j, k],
+                        f"c8_{k}_{r}_{j}_{i}",
+                    )
 
-    # for _k, type_index in enumerate(Config.TYPE_LIST):
-    #     k = _k + 1
-    #     for i in range(1, task_num + 1):
-    #         model.addConstr(A[i, k] <= S[i], f'c9_{k}_{i}')
-    for _k, type_index in enumerate(Config.TYPE_LIST):
-        k = _k + 1
+    for k in range(1, instance.kappa + 1):
         for i in range(1, task_num + 1):
-            model.addConstr(A[i, k] <= S[i], f'c10_{k}_{i}')
-            model.addConstr((S[i] + instance[i - 1][4][_k]) <= C[i, k], f'c11_{k}_{i}')
-            model.addConstr(C[i, k] <= F[i], f'c12_{k}_{i}')
+            model.addConstr(arrival[i, k] <= start[i], f"c10_{k}_{i}")
+            model.addConstr(
+                start[i] + instance.tasks[i - 1].processing_times[k - 1]
+                <= completion[i, k],
+                f"c11_{k}_{i}",
+            )
+            model.addConstr(completion[i, k] <= finish[i], f"c12_{k}_{i}")
+
     for i in range(1, task_num + 1):
-        model.addConstr(F[i] - instance[i - 1][3] <= T[i], f'c13_{i}')
-        model.addConstr(0 <= T[i], f'c14_{i}')
+        model.addConstr(
+            finish[i] - instance.tasks[i - 1].deadline <= task_tardiness[i],
+            f"c13_{i}",
+        )
+        model.addConstr(task_tardiness[i] >= 0, f"c14_{i}")
 
-    model.setParam("TimeLimit", 3600)
-    model.setParam("LogFile", "gurobi_log.txt")
-
-    model.optimize()
-    if model.SolCount == 0:
-        result['instance'] = instance_name
-        result['fitness'] = " "
-        result['distance'] = " "
-        result['tardiness'] = " "
-        result['solution'] = " "
-
-        results[instance_name] = result
-        return None
-
-    solution = get_path_list(x, instance)
-    print(f"distance: {distance.x} tardiness: {tardiness.x}")
-
-    for r in range(1, Config.ROBOT_NUM + 1):
-        route_distance = 0
-        for i in range(0, task_num + 1):
-            for j in range(1, task_num + 1):
-                if round(x[i, j, r].x, 0) == 1:
-                    route_distance += distance_map[i, j]
-        print(f"route{r}: {route_distance}")
-
-
-
-    result['instance'] = instance_name
-    result['fitness'] = solution.get_fitness()
-    result['distance'] = solution.distance
-    result['tardiness'] = solution.tardiness
-    result['solution'] = str(solution.get_path_map())
-    result['solve_time'] = model.Runtime
-
-    results[instance_name] = result
+    log_file.parent.mkdir(parents=True, exist_ok=True)
+    if task_num == 20:
+        model.setParam("MIPFocus", 1)
+        model.setParam("Heuristics", 0.10)
+        model.setParam("NoRelHeurWork", 60)
+    elif task_num == 50:
+        model.setParam("MIPFocus", 1)
+        model.setParam("Heuristics", 0.20)
+        model.setParam("NoRelHeurWork", 240)
+    model.setParam("TimeLimit", float(time_limit_s))
+    model.setParam("MIPGap", float(mip_gap))
+    model.setParam("Threads", int(threads))
+    model.setParam("Seed", int(seed))
+    model.setParam("LogFile", str(log_file.resolve()))
+    model.setParam("LogToConsole", 1 if log_to_console else 0)
+    return ModelArtifacts(
+        model=model,
+        instance=instance,
+        config=config,
+        x=x,
+        arrival=arrival,
+        completion=completion,
+        start=start,
+        finish=finish,
+        task_tardiness=task_tardiness,
+        distance_var=distance_var,
+        tardiness_var=tardiness_var,
+        distance_map=distance_map,
+        big_m=BIG_M,
+    )
 
 
-    return solution
+def classify_status(model: gp.Model) -> str:
+    status = int(model.Status)
+    has_solution = int(model.SolCount) > 0
+    if status == GRB.OPTIMAL:
+        return "optimal"
+    if status == GRB.TIME_LIMIT:
+        return "time_limit_feasible" if has_solution else "time_limit_no_incumbent"
+    if status == GRB.INFEASIBLE:
+        return "infeasible"
+    if status == GRB.INF_OR_UNBD:
+        return "inf_or_unbd"
+    if status == GRB.UNBOUNDED:
+        return "unbounded"
+    if status == GRB.SUBOPTIMAL and has_solution:
+        return "suboptimal_feasible"
+    return "solver_limit_feasible" if has_solution else "solver_limit_no_incumbent"
 
 
-def get_path_list(x, instance):
+def _robot_type(config: RobotConfig, robot: int) -> int:
+    for k, (start, end) in enumerate(config.type_list, start=1):
+        if start <= robot < end:
+            return k
+    raise ValueError(f"Robot {robot} is outside the configured ranges")
 
 
-    path_map = {}
-    task_num = len(instance)
-
-
-
-
-    for r in range(1, Config.ROBOT_NUM + 1):
-        flag = False
-        path = []
-        connection_dict = {}
-        for i in range(0, task_num + 1):
-            for j in range(0, task_num + 1):
-                if round(x[i, j, r].x, 0) == 1:
-                    connection_dict[i] = j
-                    flag = True
-        if not flag:
-            # logging.info(f"route{r} connection_dict:{connection_dict}")
-            logging.info(f"route{r} path:{path}")
-            path_map[r] = []
+def extract_path_map(artifacts: ModelArtifacts) -> dict[int, list[int]]:
+    n = artifacts.instance.n
+    paths: dict[int, list[int]] = {}
+    for robot in range(1, artifacts.config.robot_num + 1):
+        connection: dict[int, int] = {}
+        selected = 0
+        for i in range(n + 1):
+            for j in range(n + 1):
+                if artifacts.x[i, j, robot].X > 0.5:
+                    if i in connection:
+                        raise ValueError(f"Robot {robot} has multiple outgoing arcs from {i}")
+                    connection[i] = j
+                    selected += 1
+        if connection.get(0) == 0:
+            if selected != 1:
+                raise ValueError(f"Unused robot {robot} has non-dummy arcs")
+            paths[robot] = []
             continue
-        current = 0
-        path.append(0)
-        while True:
-            current = connection_dict.get(current)
-            if current == 0:
-                break
+        current = connection.get(0)
+        path: list[int] = []
+        seen: set[int] = set()
+        while current != 0:
+            if current is None or current in seen:
+                raise ValueError(f"Robot {robot} path is disconnected or cyclic")
+            seen.add(current)
             path.append(current)
-        path.remove(0)
-        logging.info(f"route{r} path:{path}")
-
-        path_map[r] = path
-    print(path_map)
-    sequence_map, path_init_task_map = path_map2sequence_map(path_map)
-    solution = Solution(instance, sequence_map, path_init_task_map)
-    return solution
+            current = connection.get(current)
+        if selected != len(path) + 1:
+            raise ValueError(f"Robot {robot} contains disconnected selected arcs")
+        paths[robot] = path
+    return paths
 
 
+def evaluate_paths(instance: Instance, path_map: dict[int, list[int]]) -> dict[str, Any]:
+    config = robot_config(instance.kappa)
+    predecessors: dict[tuple[int, int], int] = {}
+    distance = 0.0
+    for robot, path in path_map.items():
+        k = _robot_type(config, robot)
+        predecessor = 0
+        for task_index in path:
+            key = (task_index, k)
+            if key in predecessors:
+                raise ValueError(f"Task {task_index} is duplicated for type {k}")
+            predecessors[key] = predecessor
+            distance += manhattan(_position(instance, predecessor), _position(instance, task_index))
+            predecessor = task_index
+    expected = {(i, k) for i in range(1, instance.n + 1) for k in range(1, instance.kappa + 1)}
+    if set(predecessors) != expected:
+        raise ValueError("Paths do not cover every task exactly once for every robot type")
+
+    remaining = set(range(1, instance.n + 1))
+    starts: dict[int, float] = {}
+    completions: dict[tuple[int, int], float] = {}
+    while remaining:
+        ready = [
+            task_index
+            for task_index in sorted(remaining)
+            if all(
+                predecessors[task_index, k] == 0
+                or (predecessors[task_index, k], k) in completions
+                for k in range(1, instance.kappa + 1)
+            )
+        ]
+        if not ready:
+            raise ValueError("Task precedence graph contains a cross-type cycle")
+        for task_index in ready:
+            arrival_times = []
+            for k in range(1, instance.kappa + 1):
+                predecessor = predecessors[task_index, k]
+                previous_completion = 0.0 if predecessor == 0 else completions[predecessor, k]
+                arrival_times.append(
+                    previous_completion
+                    + manhattan(_position(instance, predecessor), _position(instance, task_index))
+                )
+            start_time = max(arrival_times)
+            starts[task_index] = start_time
+            task = instance.tasks[task_index - 1]
+            for k in range(1, instance.kappa + 1):
+                completions[task_index, k] = start_time + task.processing_times[k - 1]
+            remaining.remove(task_index)
+
+    tardiness = 0.0
+    task_times: dict[str, Any] = {}
+    for task in instance.tasks:
+        finish = max(completions[task.index, k] for k in range(1, instance.kappa + 1))
+        task_tardiness = max(finish - task.deadline, 0.0)
+        tardiness += task_tardiness
+        task_times[str(task.index)] = {
+            "start": starts[task.index],
+            "completion_by_type": [
+                completions[task.index, k] for k in range(1, instance.kappa + 1)
+            ],
+            "finish": finish,
+            "tardiness": task_tardiness,
+        }
+    return {
+        "distance": distance,
+        "tardiness": tardiness,
+        "objective": 0.5 * distance + 0.5 * tardiness,
+        "task_times": task_times,
+    }
 
 
+def extract_solution(
+    artifacts: ModelArtifacts, *, tolerance: float = OBJECTIVE_TOLERANCE
+) -> dict[str, Any]:
+    if artifacts.model.SolCount <= 0:
+        raise ValueError("The model has no incumbent solution")
+    path_map = extract_path_map(artifacts)
+    independently_evaluated = evaluate_paths(artifacts.instance, path_map)
+    objective = float(artifacts.model.ObjVal)
+    distance = float(artifacts.distance_var.X)
+    tardiness = float(artifacts.tardiness_var.X)
+    errors = {
+        "objective": abs(objective - independently_evaluated["objective"]),
+        "distance": abs(distance - independently_evaluated["distance"]),
+        "tardiness": abs(tardiness - independently_evaluated["tardiness"]),
+    }
+    consistent = max(errors.values()) <= tolerance
+    if not consistent:
+        raise ValueError(f"MILP and independent evaluation differ: {errors}")
+    return {
+        "objective": objective,
+        "distance": distance,
+        "tardiness": tardiness,
+        "path_map": {str(robot): path for robot, path in path_map.items()},
+        "task_times": independently_evaluated["task_times"],
+        "independent_evaluation": independently_evaluated,
+        "consistency_errors": errors,
+        "objective_consistent": True,
+    }
 
 
-
-
-
-if __name__ == "__main__":
-    results = {}
-    size = 10
-    for i in range(5, 21):
-        instance_name = f"N{size}_K2_M12_I{i}.xlsx"
-        solution = build_model(instance_name, results)
-        df = pd.DataFrame(results).T
-        df.to_excel(f'results_{size}.xlsx', index=False)
-        fitness = solution.get_fitness()
-        print(f"solution fitness:{fitness} distance:{solution.distance} tardiness:{solution.tardiness}")
-
-
-    # instance_name = f"N50_K2_M12_I1.xlsx"
-    # solution = build_model(instance_name)
-
-
-
-
-
-
-
-
-
-
-
-
-
+def finite_or_none(value: float) -> float | None:
+    value = float(value)
+    return value if math.isfinite(value) else None

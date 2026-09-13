@@ -1,4 +1,4 @@
-﻿import warnings
+import warnings
 
 import torch
 import numpy as np
@@ -20,7 +20,7 @@ def load_problem(name):
 
 
 def torch_load_cpu(load_path):
-    return torch.load(load_path, map_location=lambda storage, loc: storage)  # Load on CPU
+    return torch.load(load_path, map_location=lambda storage, loc: storage, weights_only=False)  # Load on CPU
 
 
 def move_to(var, device):

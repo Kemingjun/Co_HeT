@@ -1,4 +1,4 @@
-﻿import warnings
+import warnings
 
 import torch
 import numpy as np
@@ -13,7 +13,10 @@ import torch.nn.functional as F
 def load_problem(name):
     from problems import TSP, CVRP, SDVRP, OP, PCTSPDet, PCTSPStoch, CVRPTW, HRSP
     problem = {
-        'tsp': TSP,        'op': OP,
+        'tsp': TSP,
+        'cvrp': CVRP,
+        'sdvrp': SDVRP,
+        'op': OP,
         'pctsp_det': PCTSPDet,
         'pctsp_stoch': PCTSPStoch,
         'cvrptw': CVRPTW,
@@ -206,5 +209,3 @@ def sample_many(inner_func, input, batch_rep=1, iter_rep=1):
     minpis = pis[torch.arange(pis.size(0), out=argmincosts.new()), argmincosts]
 
     return minpis, mincosts
-
-

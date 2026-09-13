@@ -1,4 +1,4 @@
-name: cohet
+name: my310env
 channels:
   - pytorch
   - nvidia
@@ -12,8 +12,10 @@ dependencies:
   - numpy
   - pandas
   - scipy
+  - matplotlib
   - tqdm
   - openpyxl
+  - tensorboard
   - pip
   - pip:
       - tensorboard_logger

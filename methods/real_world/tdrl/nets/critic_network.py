@@ -1,4 +1,4 @@
-﻿from torch import nn
+from torch import nn
 from nets.graph_encoder import GraphAttentionEncoder
 
 
@@ -38,4 +38,3 @@ class CriticNetwork(nn.Module):
         """
         _, graph_embeddings = self.encoder(inputs)
         return self.value_head(graph_embeddings)
-

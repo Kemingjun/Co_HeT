@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import torch.nn as nn
 from torch.autograd import Variable
 import math
@@ -351,4 +351,3 @@ class PointerNetwork(nn.Module):
                                                                  eval_tours)
 
         return pointer_probs, input_idxs
-

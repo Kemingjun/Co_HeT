@@ -29,15 +29,15 @@
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "CoHeT_size_40_RW_resume_3_20260605T145919",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_cohet_n40_seed_1234_3_20260903T215623",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
  "load_path": null,
- "resume": "outputs/hrsp_3_40/CoHeT_size_40_RW_3_20260603T132948/epoch-34.pt",
+ "resume": null,
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_3_40/CoHeT_size_40_RW_resume_3_20260605T145919"
+ "save_dir": "outputs/hrsp_3_40/industrial_cohet_n40_seed_1234_3_20260903T215623"
 }

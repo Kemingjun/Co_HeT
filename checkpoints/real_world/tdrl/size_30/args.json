@@ -29,8 +29,8 @@
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "TDRL_size_30_RW_3_20260604T174428",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_tdrl_n30_seed_1234_3_20260902T084246",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
@@ -39,5 +39,5 @@
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_3_30/TDRL_size_30_RW_3_20260604T174428"
+ "save_dir": "outputs/hrsp_3_30/industrial_tdrl_n30_seed_1234_3_20260902T084246"
 }

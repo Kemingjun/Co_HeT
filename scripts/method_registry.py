@@ -85,7 +85,7 @@ def get_method_dir(method: str, robot_type: int, real_world: bool = False) -> Pa
     spec = get_method(method)
     if real_world:
         if spec.real_world_dir is None:
-            raise ValueError(f"{spec.display_name} does not provide a real-world implementation.")
+            raise ValueError(f"{spec.display_name} does not provide an industrial simulation implementation.")
         return spec.real_world_dir
     if robot_type not in spec.synthetic_dirs:
         raise ValueError(f"{spec.display_name} does not provide type-{robot_type} implementation.")
@@ -94,7 +94,7 @@ def get_method_dir(method: str, robot_type: int, real_world: bool = False) -> Pa
 
 def get_instance_root(robot_type: int, real_world: bool = False) -> Path:
     if real_world:
-        return REPO_ROOT / "instances" / "real_world" / "Instance_real_world"
+        return REPO_ROOT / "instances" / "real_world_test100_seed20260906"
     return REPO_ROOT / "instances" / "synthetic" / f"type_{robot_type}" / "Instance"
 
 

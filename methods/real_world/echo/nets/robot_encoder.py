@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import numpy as np
 from torch import nn
 import math
@@ -6,7 +6,7 @@ from problems.hrsp.paramet_hrsp import paramet_hrsp
 
 class SkipConnection(nn.Module):
     """
-    
+    残差
     """
     def __init__(self, module):
         super(SkipConnection, self).__init__()
@@ -14,8 +14,8 @@ class SkipConnection(nn.Module):
 
     def forward(self, x, y=None):
         if y is not None:
-            return x + self.module(x, y)
-        return x + self.module(x)
+            return x + self.module(x, y)  # 支持双输入
+        return x + self.module(x)  # 单输入兼容
 
 
 class MultiHeadAttention(nn.Module):
@@ -42,6 +42,7 @@ class MultiHeadAttention(nn.Module):
 
         self.norm_factor = 1 / math.sqrt(key_dim)  # See Attention is all you need
 
+        # parameter表示需要在训练中进行优化的参数
         self.W_query = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_key = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_val = nn.Parameter(torch.Tensor(n_heads, input_dim, val_dim))
@@ -60,7 +61,7 @@ class MultiHeadAttention(nn.Module):
         """
 
         :param q: queries (batch_size, n_query, input_dim)
-        :param h: data (batch_size, graph_size, input_dim) 
+        :param h: data (batch_size, graph_size, input_dim) 键和值
         :param mask: mask (batch_size, n_query, graph_size) or viewable as that (i.e. can be 2 dim if n_query == 1)
         Mask should contain 1 if attention is not possible (i.e. mask is negative adjacency)
         :return:
@@ -198,16 +199,18 @@ class PromptFiLMLayer(nn.Module):
         self.hyper = nn.Sequential(
             nn.Linear(embed_dim * 2, hyper_hidden_dim),
             nn.ReLU(),
-            nn.Linear(hyper_hidden_dim, embed_dim * 2)
+            nn.Linear(hyper_hidden_dim, embed_dim * 2)  # 输出 gamma 与 beta
         )
 
         # self.empty_selected_robot_prompt = nn.Parameter(
+        #     torch.randn(embed_dim) * 0.01  # 或用更稳定的初始化
         # )
         # self.empty_selected_robot_prompt = torch.zeros(embed_dim)
         self.empty_selected_robot_prompt = nn.Parameter(torch.empty(embed_dim))
         nn.init.xavier_uniform_(self.empty_selected_robot_prompt.unsqueeze(0))
 
     def forward(self, robot_emb, node_prompt, selected_robot_prompt):
+        # 计算 FiLM 参数
         if selected_robot_prompt == None:
             selected_robot_prompt = self.empty_selected_robot_prompt.unsqueeze(0).expand(robot_emb.size(0), -1).to(robot_emb.device)
         prompt = torch.cat([node_prompt, selected_robot_prompt], dim=-1)
@@ -215,8 +218,10 @@ class PromptFiLMLayer(nn.Module):
         gamma = gamma.unsqueeze(1)  # [B, 1, D]
         beta = beta.unsqueeze(1)    # [B, 1, D]
 
+        # 应用 FiLM 融合（逐元素缩放 + 平移）
         robot_film = gamma * robot_emb + beta  # [B, N, D]
 
+        # 加残差并归一化
         return self.norm(robot_emb + robot_film)
 
 
@@ -292,7 +297,7 @@ class RobotTypeEmbedderWithFilM(nn.Module):
         self.hyper = nn.Sequential(
             nn.Linear(embedding_dim, hyper_hidden_dim),
             nn.ReLU(),
-            nn.Linear(hyper_hidden_dim, embedding_dim * 2)
+            nn.Linear(hyper_hidden_dim, embedding_dim * 2)  # 输出 gamma 与 beta
         )
 
         self.robot_init_linear = nn.Linear(robot_dim, embedding_dim, bias=False)
@@ -309,12 +314,12 @@ class RobotTypeEmbedderWithFilM(nn.Module):
         type_embed = self.robot_type_emb(robot_type_index)
 
         gamma_beta = self.hyper(type_embed)  # [N, 2 * d_model]
-        gamma, beta = gamma_beta.chunk(2, dim=-1)
+        gamma, beta = gamma_beta.chunk(2, dim=-1)  # 各为 [N, d_model]
 
+        # # 3. 应用 FiLM 调制（需扩展维度）
         # gamma = gamma.unsqueeze(0).expand(batch_size, -1, -1)  # [B, N, d_model]
         # beta = beta.unsqueeze(0).expand(batch_size, -1, -1)  # [B, N, d_model]
 
         robot_embedding = gamma * robot_init_embedding + beta
 
         return self.norm(robot_embedding + robot_init_embedding)
-

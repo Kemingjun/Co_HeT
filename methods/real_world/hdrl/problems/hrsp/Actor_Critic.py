@@ -1,4 +1,4 @@
-﻿import gym
+import gym
 import matplotlib.pyplot as plt
 import torch
 import torch.nn as nn
@@ -8,7 +8,7 @@ from torch.distributions import Categorical
 
 class Actor(nn.Module):
     """
-    Actor 
+    演员Actor 网络
     """
     def __init__(self, action_dim, state_dim):
         super(Actor, self).__init__()
@@ -26,7 +26,7 @@ class Actor(nn.Module):
 
 class Critic(nn.Module):
     '''
-    Critic
+    评论家Critic网络
     '''
     def __init__(self, state_dim):
         super(Critic, self).__init__()
@@ -109,6 +109,5 @@ if __name__ == "__main__":
 
     plt.plot(reward)
     plt.show()
-
 
 

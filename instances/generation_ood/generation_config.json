@@ -1,0 +1,79 @@
+{
+  "dataset_id": "generation_ood",
+  "sizes": [
+    20,
+    50
+  ],
+  "kappas": [
+    2,
+    3
+  ],
+  "count_per_cell": 100,
+  "index_range": [
+    1,
+    100
+  ],
+  "master_seed": 20260825,
+  "seed_derivation": "SHA256(\"cohet-ood|{master_seed}|{mechanism}|kappa={kappa}|n={size}|i={index}\") first 8 bytes, big-endian",
+  "random_generator": "numpy.random.default_rng",
+  "base_dataset": "ID reuses the corresponding synthetic I1-I100 workbooks; other mechanisms preserve base coordinates and required_robot",
+  "mechanisms": {
+    "ID": "unchanged synthetic distribution",
+    "D-IID": "independent Uniform[0.3, 0.5n+0.2] deadlines",
+    "D-Bimodal": "equiprobable Beta(2,8) and Beta(8,2), scaled by 0.3 + sample*(0.5n-0.1)",
+    "D-AntiDistance": "assign sorted base deadlines in descending source_x+source_y order (stable sorting), then permute a uniform subset of max(2,ceil(0.30n)) deadlines",
+    "P-TruncNormal": "normal processing times with range midpoint mean, sigma=0.1, rejection-sampled within the original type-specific range",
+    "P-Lognormal": "lognormal processing times with original range midpoint mean and coefficient of variation 0.25",
+    "Joint": "D-IID deadlines, then P-Lognormal processing times using the same random stream"
+  },
+  "base_distribution": {
+    "coordinates": "independent Uniform[0,1), no minimum spacing",
+    "deadlines": "0.5,1.0,...,0.5n + independent Uniform[-0.2,0.2], then shuffled",
+    "processing_time": {
+      "kappa_2": [
+        [
+          0.3,
+          0.7
+        ],
+        [
+          0.8,
+          1.2
+        ]
+      ],
+      "kappa_3": [
+        [
+          0.4,
+          0.8
+        ],
+        [
+          0.6,
+          1
+        ],
+        [
+          0.8,
+          1.2
+        ]
+      ]
+    },
+    "required_robot": {
+      "kappa_2": [
+        1,
+        1
+      ],
+      "kappa_3": [
+        1,
+        1,
+        1
+      ]
+    },
+    "distance": "not computed by the instance generator"
+  },
+  "columns": [
+    "task_index",
+    "source_x",
+    "source_y",
+    "deadline",
+    "t_operation",
+    "required_robot"
+  ]
+}

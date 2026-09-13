@@ -1,26 +1,37 @@
-﻿import pandas as pd
-from pathlib import Path
-import numpy as np
+"""Read one packaged HRSP workbook from an explicit instance directory."""
+
 import ast
+import os
+from pathlib import Path
+
+import pandas as pd
+
+
+EXPECTED_COLUMNS = [
+    "task_index",
+    "source_x",
+    "source_y",
+    "deadline",
+    "t_operation",
+    "required_robot",
+]
 
 
 def read_excel(file_name):
-    file_name = str(Path(__file__).resolve().parent.parent) + "/Instance/" + file_name
-    df = pd.read_excel(file_name)
-    instance = [list(row) for index, row in df.iterrows()]
+    path = Path(file_name)
+    if not path.is_absolute():
+        instance_dir = os.environ.get("COHET_INSTANCE_DIR")
+        if not instance_dir:
+            raise RuntimeError("COHET_INSTANCE_DIR is required")
+        path = Path(instance_dir) / path
+    if not path.is_file():
+        raise FileNotFoundError(path)
+
+    frame = pd.read_excel(path)
+    if frame.columns.tolist() != EXPECTED_COLUMNS:
+        raise ValueError(f"Unexpected columns in {path}: {frame.columns.tolist()}")
+    instance = [list(row) for _, row in frame.iterrows()]
     for task_info in instance:
-        required_robot = task_info[-1]
-        _required_robot = ast.literal_eval(required_robot)
-        task_info[-1] = _required_robot
-
-        operation_time = task_info[-2]
-        _operation_time = ast.literal_eval(operation_time)
-        task_info[-2] = _operation_time
+        task_info[-2] = ast.literal_eval(str(task_info[-2]))
+        task_info[-1] = ast.literal_eval(str(task_info[-1]))
     return instance
-
-# if __name__ == "__main__":
-#     filename = '10_20250506110532.xlsx'
-#     instance = read_excel(filename)
-#     pass
-
-

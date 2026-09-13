@@ -1,4 +1,4 @@
-﻿from typing import NamedTuple
+from typing import NamedTuple
 
 import torch
 
@@ -23,7 +23,8 @@ class StateHRSP(NamedTuple):
     carrier_pos_norm: torch.Tensor
     shuttle_pos_norm: torch.Tensor
     forklift_pos_norm: torch.Tensor
-    length: torch.Tensor
+    travel_distance: torch.Tensor
+    travel_time: torch.Tensor
     tardiness: torch.Tensor
     route: torch.Tensor
     route_len: torch.Tensor
@@ -41,7 +42,7 @@ class StateHRSP(NamedTuple):
         supply_raw = input["supply_raw"]
         batch_size, n_loc, _ = supply_raw.size()
         device = supply_raw.device
-        depot_raw = paramet_hrsp.DEPOT_RAW.to(device).view(1, 1, 2).expand(batch_size, -1, -1)
+        depot_raw = paramet_hrsp.DEPOT_RAW.to(device=device, dtype=supply_raw.dtype).view(1, 1, 2).expand(batch_size, -1, -1)
         depot_norm = paramet_hrsp.DEPOT_NORM.to(device).view(1, 1, 2).expand(batch_size, -1, -1)
 
         return StateHRSP(
@@ -54,15 +55,16 @@ class StateHRSP(NamedTuple):
             deadline=input["deadline"],
             required_robot=input["required_robot"],
             ids=torch.arange(batch_size, dtype=torch.int64, device=device)[:, None],
-            cur_time=torch.zeros(batch_size, paramet_hrsp.ROBOT_NUM, dtype=torch.float, device=device),
+            cur_time=torch.zeros(batch_size, paramet_hrsp.ROBOT_NUM, dtype=supply_raw.dtype, device=device),
             carrier_pos_raw=depot_raw.expand(-1, int(paramet_hrsp.ROBOT_NUM_LIST[0].item()), -1).clone(),
             shuttle_pos_raw=depot_raw.expand(-1, int(paramet_hrsp.ROBOT_NUM_LIST[1].item()), -1).clone(),
             forklift_pos_raw=depot_raw.expand(-1, int(paramet_hrsp.ROBOT_NUM_LIST[2].item()), -1).clone(),
             carrier_pos_norm=depot_norm.expand(-1, int(paramet_hrsp.ROBOT_NUM_LIST[0].item()), -1).clone(),
             shuttle_pos_norm=depot_norm.expand(-1, int(paramet_hrsp.ROBOT_NUM_LIST[1].item()), -1).clone(),
             forklift_pos_norm=depot_norm.expand(-1, int(paramet_hrsp.ROBOT_NUM_LIST[2].item()), -1).clone(),
-            length=torch.zeros(batch_size, 1, dtype=torch.float, device=device),
-            tardiness=torch.zeros(batch_size, 1, dtype=torch.float, device=device),
+            travel_distance=torch.zeros(batch_size, 1, dtype=supply_raw.dtype, device=device),
+            travel_time=torch.zeros(batch_size, 1, dtype=supply_raw.dtype, device=device),
+            tardiness=torch.zeros(batch_size, 1, dtype=supply_raw.dtype, device=device),
             route=torch.full(
                 (batch_size, paramet_hrsp.ROBOT_NUM, n_loc),
                 -1,
@@ -156,7 +158,13 @@ class StateHRSP(NamedTuple):
         shuttle_pos_norm[batch_idx, shuttle_idx] = delivery_norm
         forklift_pos_norm[batch_idx, forklift_idx] = handover_norm
 
-        task_distance = carrier_to_shuttle + shuttle_to_handover + handover_to_delivery + forklift_to_supply + supply_to_handover
+        carrier_distance = carrier_to_shuttle + shuttle_to_handover + handover_to_delivery
+        forklift_distance = forklift_to_supply + supply_to_handover
+        task_distance = carrier_distance + forklift_distance
+        task_travel_time = (
+            carrier_distance / paramet_hrsp.CARRIER_VELOCITY
+            + forklift_distance / paramet_hrsp.FORKLIFT_VELOCITY
+        )
         selected_deadline = self.deadline[batch_idx, selected_task]
         task_tardiness = torch.clamp_min(shuttle_release - selected_deadline, 0)
 
@@ -180,7 +188,8 @@ class StateHRSP(NamedTuple):
             carrier_pos_norm=carrier_pos_norm,
             shuttle_pos_norm=shuttle_pos_norm,
             forklift_pos_norm=forklift_pos_norm,
-            length=self.length + task_distance.unsqueeze(-1),
+            travel_distance=self.travel_distance + task_distance.unsqueeze(-1),
+            travel_time=self.travel_time + task_travel_time.unsqueeze(-1),
             tardiness=self.tardiness + task_tardiness.unsqueeze(-1),
             route=route,
             route_len=route_len,
@@ -210,5 +219,3 @@ class StateHRSP(NamedTuple):
 
 def manhattan(a, b):
     return (a - b).abs().sum(dim=-1)
-
-

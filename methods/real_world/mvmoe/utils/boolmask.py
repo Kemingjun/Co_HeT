@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import torch.nn.functional as F
 
 
@@ -66,4 +66,3 @@ def mask_long_scatter(mask, values, check_unset=True):
     # (% not strictly necessary as bitshift is cyclic)
     # since where is 0 if no value needs to be set, the bitshift has no effect
     return mask | (where.long() << (values_ % 64))
-

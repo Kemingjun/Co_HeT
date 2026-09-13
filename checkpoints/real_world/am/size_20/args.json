@@ -28,8 +28,8 @@
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "AM_size_20_RW_20260603T140032",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_am_n20_seed_1234_20260901T232430",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
@@ -38,5 +38,5 @@
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_20/AM_size_20_RW_20260603T140032"
+ "save_dir": "outputs/hrsp_20/industrial_am_n20_seed_1234_20260901T232430"
 }

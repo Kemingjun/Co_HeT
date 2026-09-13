@@ -6,12 +6,24 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-logs/
-runs/
-tensorboard/
-wandb/
-outputs/
-results/
+/logs/
+methods/**/logs/
+scripts/**/logs/
+/runs/
+methods/**/runs/
+scripts/**/runs/
+/tensorboard/
+methods/**/tensorboard/
+scripts/**/tensorboard/
+/wandb/
+methods/**/wandb/
+scripts/**/wandb/
+/outputs/
+methods/**/outputs/
+scripts/**/outputs/
+/results/
+methods/**/results/
+scripts/**/results/
 
 *.out
 *.log
@@ -32,3 +44,4 @@ cover_letter*
 
 .DS_Store
 Thumbs.db
+/analysis_outputs/

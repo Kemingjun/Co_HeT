@@ -1,12 +1,10 @@
 # Co-HeT: A Transformer-based Deep Reinforcement Learning Approach for Collaborative Heterogeneous Robot Scheduling
-<div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-supported-orange.svg)](https://pytorch.org/)
 
 This repository contains the official implementation and baseline algorithms for the paper: **"Co-HeT: A Transformer-based Deep Reinforcement Learning Approach for Collaborative Heterogeneous Robot Scheduling"**.
-</div>
 
 ---
 
@@ -14,7 +12,7 @@ This repository contains the official implementation and baseline algorithms for
 
 Modern smart manufacturing and logistics increasingly involve coupled operations that cannot be completed by a single robot type. In a smart warehouse, forklifts, AGVs, mobile manipulators, and human operators may need to coordinate at collaborative workstations, where each task can start only after all required robot types are present and available.
 
-Co-HeT studies **Collaborative Heterogeneous Robot Scheduling Problems (CHRSP)**, a class of problems that abstracts this workflow into synchronized scheduling of functionally heterogeneous robot coalitions. This repository provides the proposed model, adapted DRL baselines, traditional exact and metaheuristic baselines, benchmark and real-world instances, visualization media, and pretrained checkpoints.
+Co-HeT studies **Collaborative Heterogeneous Robot Scheduling Problems (CHRSP)**, a class of problems that abstracts this workflow into synchronized scheduling of functionally heterogeneous robot coalitions. This repository provides the proposed model, adapted DRL baselines, MILP and metaheuristic baselines, synthetic benchmark and industrial simulation instances, visualization media, and pretrained checkpoints.
 
 <p align="center">
   <img src="docs/figures/logistic.png" width="600" alt="Collaborative heterogeneous robot scheduling scenario">
@@ -40,14 +38,16 @@ The animation shows the complete lifecycle of collaborative task execution under
 - **Synchronized execution.** A task starts execution only when all required robot types are simultaneously present and available.
 - **Completion and departure.** After execution is completed, the assigned robots are released and proceed to subsequent scheduled tasks.
 
-## 🏭 Industrial Case Study
+## 🏭 Industrial Simulation Case Study
 
-We further evaluate Co-HeT on an industrial battery plate transfer case. The system involves a carrier, a shuttle, and a forklift, which must coordinate across supply, handover, docking, and processing stations under synchronized task requirements.
+We further evaluate Co-HeT in a simulation based on an industrial battery plate transfer scenario. The simulated system involves a carrier, a shuttle, and a forklift, which coordinate across supply, handover, docking, and processing stations under synchronized task requirements. Quantitative results come from the industrial scheduling simulator; Webots visualizes the workflow. These experiments assess scheduling performance under the modeled conditions and do not provide physical-robot deployment validation.
+
+The benchmark uses 100 generated test instances at each of 10, 20, 30 and 40 tasks. All six DRL methods are retrained on industrially parameterized simulation data at each scale. The [industrial experiment guide](docs/experiments/industrial/README.md) describes generation rules, simulation parameters, model training and result coverage.
 
 <p align="center">
-  <img src="docs/figures/scenario.png" width="780" alt="Industrial battery plate transfer system and Webots simulation layout">
+  <img src="docs/figures/scenario.png" width="780" alt="Industrial scenario reference photograph and corresponding Webots simulation layout">
   <br>
-  <em>Fig. 2. Industrial battery plate transfer system and its Webots-based simulation layout.</em>
+  <em>Fig. 2. (a) Industrial battery plate transfer scenario used as context; (b) corresponding Webots simulation layout.</em>
 </p>
 
 The workflow is summarized as follows:
@@ -57,12 +57,12 @@ The workflow is summarized as follows:
 - **Delivery after release.** After the forklift is released, the carrier-shuttle pair completes the downstream delivery.
 
 <p align="center">
-  <img src="docs/figures/workflow.png" width="780" alt="Industrial real-world task execution workflow">
+  <img src="docs/figures/workflow.png" width="780" alt="Simulated industrial task execution workflow in Webots">
   <br>
-  <em>Fig. 3. Collaborative transfer task execution from task-point specification to synchronized handover and delivery.</em>
+  <em>Fig. 3. Simulated collaborative transfer task execution in Webots, from task-point specification to synchronized handover and delivery.</em>
 </p>
 
-The following Webots-based video demonstrates the full industrial workflow and the corresponding coordinated robot execution.
+The following Webots video illustrates coordinated robot execution in the simulated industrial workflow.
 
 
 <div align="center">
@@ -77,7 +77,7 @@ The following Webots-based video demonstrates the full industrial workflow and t
 Co-HeT is a Transformer-based encoder-decoder policy network for task-coalition scheduling. Rather than selecting only the next task, it constructs the complete heterogeneous robot coalition required for synchronized execution.
 
 <p align="center">
-  <img src="docs/figures/architecture.png" width="860" alt="Co-HeT model architecture">
+  <a href="docs/figures/architecture.pdf">View the Co-HeT model architecture (PDF)</a>
   <br>
   <em>Fig. 4. Architecture of the Co-HeT policy network.</em>
 </p>
@@ -91,24 +91,22 @@ This design aligns the policy with CHRSP by making task decisions aware of robot
 
 ## ⚙️ Installation
 
-Validate the recommended environment specification:
+Use Python 3.10 and install the core dependencies from `environment.yml`. The examples use the Conda environment `my310env`:
 
 ```bash
-conda env create -f environment.yml --dry-run
+conda env create -n my310env -f environment.yml
 ```
 
-To use the repository, create an environment from `environment.yml` and activate it with your local Conda workflow. If using an existing environment, install the core dependencies manually:
+Gurobi is optional for learning methods and offline analysis. To run the MILP baseline, install `gurobipy` in the same environment and configure your own valid Gurobi license. No license is included.
 
-```bash
-python -m pip install torch numpy pandas tqdm openpyxl tensorboard_logger
-```
-
-The checkpoint and video files are tracked with Git LFS:
+Checkpoint and video files use Git LFS when published through Git:
 
 ```bash
 git lfs install
 git lfs pull
 ```
+
+Local copies already containing full `.pt` files do not require an LFS download. See [reproducibility](docs/reproducibility.md) for recorded settings and [the checkpoint guide](checkpoints/README.md) for model selection.
 
 ## 🗂️ Repository Structure
 
@@ -121,7 +119,8 @@ methods/
     tdrl/               Adapted TDRL baseline
     mvmoe/              Adapted MVMoE baseline
     echo/               Adapted ECHO baseline
-  conventional/         Gurobi exact solver and ALNS/IGA/DABC/DIWO metaheuristics
+  real_world/           Industrial simulation DRL environments
+  conventional/         Gurobi MILP and ALNS/IGA/DABC/DIWO metaheuristics
 
 checkpoints/
   cohet|am|hdrl|tdrl|mvmoe|echo/
@@ -132,9 +131,9 @@ checkpoints/
       size_10|size_20|size_30|size_40/
 
 instances/
-  synthetic/            Synthetic benchmark instances for two and three robot types
-  robustness/           Spatial and temporal robustness test instances
-  real_world/           Industrial real-world case-study instances
+  synthetic/            Synthetic benchmark and spatial/temporal robustness instances
+  real_world/           Earlier industrial simulation instances
+  real_world_test100_seed20260906/  Industrial simulation test set (400 instances)
 
 scripts/
   eval_drl.py           Unified DRL evaluation entry point
@@ -143,16 +142,32 @@ scripts/
   benchmark_all.py      Batch benchmark runner
   method_registry.py    Method and path registry used by wrapper scripts
 
+docs/experiments/       Main comparison and industrial per-instance results
 docs/figures/           README and paper illustration figures
-media/                  Collaborative execution and real-world Webots videos
+scripts/analysis/       Main comparison and industrial result reconstruction
+scripts/industrial/     Industrial training and evaluation entry points
+media/                  Collaborative execution animations and industrial Webots simulation videos
 ```
+
+## Synthetic Distance Contract
+
+All robots start at the depot and finish after their last assigned task, without a return trip. Unused robots have empty routes. Travel uses Manhattan distance:
+
+```text
+d(i, j) = abs(x_i - x_j) + abs(y_i - y_j)
+J = lambda * total_travel_time + (1 - lambda) * total_tardiness
+```
+
+The synthetic reference speed is 1, so travel time and Manhattan distance have the same numerical value in the benchmark units. The main setting uses `lambda = 0.5`; weight sensitivity covers `0.1, 0.2, ..., 0.9`, with eight additional models and reuse of the main model at 0.5. Industrial travel time uses the separate carrier and forklift speeds described in [industrial settings](docs/experiments/industrial/README.md).
+
+Composite task–coalition actions synchronize the required functional types and avoid partial coalition allocation. The scheduling model does not include collision avoidance, shared-space contention, communication delays, dynamic arrivals, or failures during execution.
 
 ## 🚀 Evaluate Co-HeT
 
 Greedy decoding on a 20-task, two-robot-type checkpoint:
 
 ```bash
-python scripts/eval_drl.py \
+conda run -n my310env python scripts/eval_drl.py \
   --method cohet \
   --robot_type 2 \
   --dataset Synthetic_Dataset \
@@ -167,7 +182,7 @@ python scripts/eval_drl.py \
 Sampling with 1280 candidate solutions on one instance:
 
 ```bash
-python scripts/eval_drl.py \
+conda run -n my310env python scripts/eval_drl.py \
   --method cohet \
   --robot_type 2 \
   --dataset Synthetic_Dataset \
@@ -205,7 +220,7 @@ The repository includes CHRSP-adapted DRL baselines under the same reward, actio
 Quick evaluation examples:
 
 ```bash
-python scripts/eval_drl.py \
+conda run -n my310env python scripts/eval_drl.py \
   --method am \
   --robot_type 2 \
   --dataset Synthetic_Dataset \
@@ -216,7 +231,7 @@ python scripts/eval_drl.py \
   --no_progress_bar \
   -f
 
-python scripts/eval_drl.py \
+conda run -n my310env python scripts/eval_drl.py \
   --method mvmoe \
   --robot_type 3 \
   --dataset Synthetic_Dataset \
@@ -228,7 +243,7 @@ python scripts/eval_drl.py \
   --no_progress_bar \
   -f
 
-python scripts/eval_drl.py \
+conda run -n my310env python scripts/eval_drl.py \
   --method echo \
   --robot_type 2 \
   --dataset Synthetic_Dataset \
@@ -243,72 +258,57 @@ python scripts/eval_drl.py \
 
 ## 🏋️ Train DRL Models
 
-Run a lightweight Co-HeT training check:
+The n=20, k=2 Co-HeT reference configuration is:
 
 ```bash
-python scripts/train_drl.py \
-  --method cohet \
-  --robot_type 2 \
-  --graph_size 20 \
-  --n_epochs 1 \
-  --epoch_size 128 \
-  --batch_size 64 \
-  --val_size 64 \
-  --eval_batch_size 64 \
-  --no_tensorboard \
-  --no_progress_bar \
-  --run_name smoke_cohet_type2_20
+conda run -n my310env python scripts/train_drl.py --method cohet --robot_type 2 --graph_size 20 --n_epochs 100 --epoch_size 1280000 --batch_size 1024 --val_size 10000 --eval_batch_size 1024 --seed 1234 --run_name cohet_n20_k2_seed1234
 ```
 
-Run lightweight checks for the adapted DRL baselines:
+Change `--method` to `am`, `hdrl`, `tdrl`, `mvmoe` or `echo` to select its implementation. Additional arguments are forwarded to its `run.py`. The example applies only to Co-HeT at n=20, k=2; use each model's adjacent `args.json` to preserve its actual batch size, precision and other training settings.
+
+For an optional short training check:
 
 ```bash
-python scripts/train_drl.py --method am    --robot_type 2 --graph_size 20 --n_epochs 1 --epoch_size 128 --batch_size 64 --val_size 64 --eval_batch_size 64 --no_tensorboard --no_progress_bar --run_name smoke_am_type2_20
-python scripts/train_drl.py --method hdrl  --robot_type 2 --graph_size 20 --n_epochs 1 --epoch_size 128 --batch_size 64 --val_size 64 --eval_batch_size 64 --no_tensorboard --no_progress_bar --run_name smoke_hdrl_type2_20
-python scripts/train_drl.py --method tdrl  --robot_type 2 --graph_size 20 --n_epochs 1 --epoch_size 128 --batch_size 64 --val_size 64 --eval_batch_size 64 --no_tensorboard --no_progress_bar --run_name smoke_tdrl_type2_20
-python scripts/train_drl.py --method mvmoe --robot_type 2 --graph_size 20 --n_epochs 1 --epoch_size 128 --batch_size 64 --val_size 64 --eval_batch_size 64 --no_tensorboard --no_progress_bar --run_name smoke_mvmoe_type2_20
-python scripts/train_drl.py --method echo  --robot_type 2 --graph_size 20 --n_epochs 1 --epoch_size 128 --batch_size 64 --val_size 64 --eval_batch_size 64 --no_tensorboard --no_progress_bar --run_name smoke_echo_type2_20
+conda run -n my310env python scripts/train_drl.py --method cohet --robot_type 2 --graph_size 20 --n_epochs 1 --epoch_size 128 --batch_size 64 --val_size 64 --eval_batch_size 64 --no_tensorboard --no_progress_bar --run_name smoke_cohet
 ```
 
-Additional training arguments are forwarded to the method-specific `run.py`. A minimal smoke test can be launched as:
+Encoder checkpointing can be selected with `--checkpoint_encoder` to reduce memory use. Training commands start computation and create new outputs.
 
-```bash
-python scripts/train_drl.py \
-  --method cohet \
-  --robot_type 2 \
-  --graph_size 20 \
-  --n_epochs 1 \
-  --epoch_size 512 \
-  --batch_size 128 \
-  --val_size 128 \
-  --eval_batch_size 128 \
-  --no_tensorboard \
-  --no_progress_bar \
-  --run_name smoke_cohet
-```
+### Training Convergence
 
-For larger instances, encoder checkpointing can reduce GPU memory usage:
+The following figures show the epoch-wise mean logged training cost of the six methods for 10, 20, 50 and 100 tasks. Lower values indicate lower training cost. Model-specific training settings are provided with the [checkpoints](checkpoints/README.md).
 
-```bash
-python scripts/train_drl.py \
-  --method cohet \
-  --robot_type 3 \
-  --robot_type_num 3 \
-  --graph_size 100 \
-  --n_epochs 1 \
-  --epoch_size 8 \
-  --batch_size 8 \
-  --val_size 8 \
-  --eval_batch_size 8 \
-  --checkpoint_encoder \
-  --no_tensorboard \
-  --no_progress_bar \
-  --run_name smoke_cohet_type3_100
-```
+<p align="center">
+  <a href="docs/figures/training_convergence_k2_4scales.png"><img src="docs/figures/training_convergence_k2_4scales.png" width="1000" alt="Training convergence of six methods across four task scales with two robot types"></a>
+  <br>
+  <em>Training convergence with two functional robot types (&kappa; = 2).</em>
+</p>
+
+<p align="center">
+  <a href="docs/figures/training_convergence_k3_4scales.png"><img src="docs/figures/training_convergence_k3_4scales.png" width="1000" alt="Training convergence of six methods across four task scales with three robot types"></a>
+  <br>
+  <em>Training convergence with three functional robot types (&kappa; = 3).</em>
+</p>
+
+### Validation Convergence
+
+The following figures show the validation mean cost across training epochs for the six methods at 10, 20, 50 and 100 tasks. Lower values indicate better validation performance.
+
+<p align="center">
+  <a href="docs/figures/validation_convergence_k2_4scales.png"><img src="docs/figures/validation_convergence_k2_4scales.png" width="1000" alt="Validation mean cost of six methods across four task scales with two robot types"></a>
+  <br>
+  <em>Validation convergence with two functional robot types (&kappa; = 2).</em>
+</p>
+
+<p align="center">
+  <a href="docs/figures/validation_convergence_k3_4scales.png"><img src="docs/figures/validation_convergence_k3_4scales.png" width="1000" alt="Validation mean cost of six methods across four task scales with three robot types"></a>
+  <br>
+  <em>Validation convergence with three functional robot types (&kappa; = 3).</em>
+</p>
 
 ## 🧩 Conventional Baselines
 
-The repository packages the exact and metaheuristic baselines used in the paper for reproducibility and further adaptation:
+The repository packages the following exact and metaheuristic baselines. See the [baseline guide](methods/conventional/README.md) for algorithm settings:
 
 - `gurobi`: Gurobi MILP solver.
 - `alns`: Adaptive Large Neighborhood Search.
@@ -316,20 +316,20 @@ The repository packages the exact and metaheuristic baselines used in the paper 
 - `dabc`: Discrete Artificial Bee Colony.
 - `diwo`: Discrete Invasive Weed Optimization.
 
-Inspect the packaged conventional baseline wrapper:
+Check a conventional baseline configuration and its input data:
 
 ```bash
-python scripts/run_conventional.py --help
+conda run -n my310env python scripts/run_conventional.py --solver alns N20_K2_M12_I1 --dry-run
 ```
 
-The packaged conventional implementations preserve their original research-code structure. Running a full exact or metaheuristic baseline may require editing or extending the corresponding scripts under `methods/conventional/`. Metaheuristic settings and operator details are summarized in `docs/metaheuristic_baselines.md`.
+The entry point accepts an instance name or a selection of scales and instances. Removing `--dry-run` starts computation. The [baseline guide](methods/conventional/README.md) describes stopping conditions, repetitions, solver settings and resuming a run.
 
 ## 📊 Batch Benchmark
 
 Run a lightweight batch benchmark over selected DRL methods:
 
 ```bash
-python scripts/benchmark_all.py \
+conda run -n my310env python scripts/benchmark_all.py \
   --dataset Synthetic_Dataset \
   --methods cohet \
   --robot_types 2 \
@@ -350,29 +350,11 @@ results/comparison/readme_smoke.csv
 
 The `results/` directory is created automatically when evaluation or benchmark scripts are executed.
 
-## ✅ Reproducibility Checks
+## Experimental Results
 
-Compile all Python sources:
+Per-instance results are provided for the [main comparison](docs/experiments/main_comparison/README.md) and [industrial simulation case study](docs/experiments/industrial/README.md). Their pages describe the data columns and commands for rebuilding the result tables.
 
-```bash
-python -m compileall methods scripts
-```
-
-Run a minimal CPU checkpoint loading test:
-
-```bash
-python scripts/eval_drl.py \
-  --method cohet \
-  --robot_type 2 \
-  --dataset Synthetic_Dataset \
-  --model checkpoints/cohet/type_2/size_20 \
-  --decode_strategy greedy \
-  --eval_batch_size 1 \
-  --val_size 1 \
-  --no_progress_bar \
-  -f \
-  --no_cuda
-```
+[Baseline adaptations](docs/method_adaptations.md) and [reproducibility notes](docs/reproducibility.md) describe the model settings, datasets and objective definitions.
 
 ## 🙏 Acknowledgements
 

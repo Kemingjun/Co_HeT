@@ -28,15 +28,15 @@
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "AM_size_40_RW_resume_20260605T203612",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_am_am_am_n_n1_n40_seed_1234_20260904T092807",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
  "load_path": null,
- "resume": "outputs/hrsp_40/AM_size_40_RW_20260603T140255/epoch-59.pt",
+ "resume": null,
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_40/AM_size_40_RW_resume_20260605T203612"
+ "save_dir": "outputs/hrsp_40/industrial_am_am_am_n_n1_n40_seed_1234_20260904T092807"
 }

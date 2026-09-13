@@ -16,7 +16,7 @@
  "lr_critic": 0.0001,
  "lr_decay": 1.0,
  "eval_only": false,
- "n_epochs": 100,
+ "n_epochs": 82,
  "seed": 1234,
  "max_grad_norm": 1.0,
  "no_cuda": false,
@@ -29,15 +29,15 @@
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "CoHeT_size_30_RW_3_20260603T134441",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_cohet_n30_seed_1234_resume_3_20260902T160718",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
  "load_path": null,
- "resume": null,
+ "resume": "outputs/hrsp_3_30/industrial_cohet_n30_seed_1234_3_20260901T231951/epoch-18.pt",
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_3_30/CoHeT_size_30_RW_3_20260603T134441"
+ "save_dir": "outputs/hrsp_3_30/industrial_cohet_n30_seed_1234_resume_3_20260902T160718"
 }

@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 from itertools import chain
 from collections import defaultdict, Iterable
 from copy import deepcopy
@@ -68,4 +68,3 @@ def load_state_dict(self, state_dict):
 
 
 torch.optim.Optimizer.load_state_dict = load_state_dict
-

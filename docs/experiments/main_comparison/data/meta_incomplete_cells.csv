@@ -1,0 +1,3 @@
+kappa,size,method,expected_jobs,successful_jobs,failed_or_missing_jobs,expected_repetitions_per_instance,available_instances,fully_observed_instances,partially_observed_instances,zero_success_instances
+3,100,ALNS,400,359,41,4,99,73,26,1
+3,100,IGA,400,369,31,4,100,77,23,0

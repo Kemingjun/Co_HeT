@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import numpy as np
 from torch import nn
 import math
@@ -38,6 +38,7 @@ class MultiHeadAttention(nn.Module):
 
         self.norm_factor = 1 / math.sqrt(key_dim)  # See Attention is all you need
 
+        # parameter表示需要在训练中进行优化的参数
         self.W_query = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_key = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_val = nn.Parameter(torch.Tensor(n_heads, input_dim, val_dim))
@@ -56,7 +57,7 @@ class MultiHeadAttention(nn.Module):
         """
 
         :param q: queries (batch_size, n_query, input_dim)
-        :param h: data (batch_size, graph_size, input_dim) 
+        :param h: data (batch_size, graph_size, input_dim) 键和值
         :param mask: mask (batch_size, n_query, graph_size) or viewable as that (i.e. can be 2 dim if n_query == 1)
         Mask should contain 1 if attention is not possible (i.e. mask is negative adjacency)
         :return:
@@ -225,16 +226,18 @@ class PromptFiLMLayer(nn.Module):
         self.hyper = nn.Sequential(
             nn.Linear(embed_dim, hyper_hidden_dim),
             nn.ReLU(),
-            nn.Linear(hyper_hidden_dim, embed_dim * 2)
+            nn.Linear(hyper_hidden_dim, embed_dim * 2)  # 输出 gamma 与 beta
         )
 
 
     def forward(self, x, prompt):
+        # 计算 FiLM 参数
         gamma, beta = self.hyper(prompt).chunk(2, dim=-1)  # [B, D], [B, D]
         gamma = gamma.unsqueeze(1)  # [B, 1, D]
         beta = beta.unsqueeze(1)    # [B, 1, D]
 
+        # 应用 FiLM 融合（逐元素缩放 + 平移）
         h = gamma * x + beta  # [B, N, D]
 
+        # 加残差并归一化
         return self.norm(h + x)
-

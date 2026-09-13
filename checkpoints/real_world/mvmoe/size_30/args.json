@@ -35,8 +35,8 @@
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "MoE_AM_size_30_RW_20260603T135352",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_mvmoe_n30_seed_1234_20260902T200450",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
@@ -45,5 +45,5 @@
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_30/MoE_AM_size_30_RW_20260603T135352"
+ "save_dir": "outputs/hrsp_30/industrial_mvmoe_n30_seed_1234_20260902T200450"
 }

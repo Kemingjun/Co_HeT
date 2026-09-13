@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import numpy as np
 
 
@@ -53,4 +53,3 @@ def _torch_lexsort_cuda(keys, dim=-1):
 
     # Get only numel (if we have replicated), swap axis back and shape results
     return idx[:numel].view(*reordered_keys[0].size()).transpose(dim, -1) % d
-

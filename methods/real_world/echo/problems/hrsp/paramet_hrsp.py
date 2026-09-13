@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import torch.nn.functional as F
 
 
@@ -11,7 +11,7 @@ class paramet_hrsp:
     SHUTTLE_TYPE = 1
     FORKLIFT_TYPE = 2
 
-    WEIGHT = 0.4
+    WEIGHT = 0.5
     DEPOT_RAW = torch.tensor([0.0, 0.0])
     DEPOT_NORM = torch.tensor([(0.0 + 20.0) / 140.0, 0.0])
 
@@ -49,4 +49,3 @@ class paramet_hrsp:
     robot_type_indices = torch.cat(
         [torch.full((int(n.item()),), i, dtype=torch.long) for i, n in enumerate(ROBOT_NUM_LIST)]
     ).to(device)
-

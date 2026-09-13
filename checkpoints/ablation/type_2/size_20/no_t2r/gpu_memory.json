@@ -1,0 +1,2815 @@
+{
+  "ablation_variant": "no_t2r",
+  "run_name": "ablation_no_t2r_no_t2r_2_20260516T113638",
+  "device_count": 1,
+  "epochs": [
+    {
+      "epoch": 0,
+      "epoch_duration_seconds": 1341.5049707889557,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534481920,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.09326171875,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154387950897217,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534481920,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.09326171875,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154387950897217,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 1,
+      "epoch_duration_seconds": 2032.8718044757843,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 2,
+      "epoch_duration_seconds": 2008.2383542060852,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 3,
+      "epoch_duration_seconds": 2006.6125190258026,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 4,
+      "epoch_duration_seconds": 1998.516930103302,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 5,
+      "epoch_duration_seconds": 1995.2679014205933,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 6,
+      "epoch_duration_seconds": 1980.0343370437622,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 7,
+      "epoch_duration_seconds": 1967.5294044017792,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 8,
+      "epoch_duration_seconds": 1961.243486404419,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 9,
+      "epoch_duration_seconds": 1961.1740074157715,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 10,
+      "epoch_duration_seconds": 1965.6370968818665,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 11,
+      "epoch_duration_seconds": 1959.191677570343,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 12,
+      "epoch_duration_seconds": 1984.1385781764984,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 13,
+      "epoch_duration_seconds": 2007.030315876007,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 14,
+      "epoch_duration_seconds": 2007.3924417495728,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 15,
+      "epoch_duration_seconds": 2010.0481679439545,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 16,
+      "epoch_duration_seconds": 2011.4778325557709,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 17,
+      "epoch_duration_seconds": 2026.1040008068085,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 18,
+      "epoch_duration_seconds": 2016.3487684726715,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 19,
+      "epoch_duration_seconds": 2052.8274409770966,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 20,
+      "epoch_duration_seconds": 2059.279454231262,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 21,
+      "epoch_duration_seconds": 2041.1355667114258,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 22,
+      "epoch_duration_seconds": 2028.544233083725,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 23,
+      "epoch_duration_seconds": 2031.7891573905945,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 24,
+      "epoch_duration_seconds": 2063.0890097618103,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 25,
+      "epoch_duration_seconds": 2055.4793944358826,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 26,
+      "epoch_duration_seconds": 2035.8536286354065,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 27,
+      "epoch_duration_seconds": 2047.0885713100433,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 28,
+      "epoch_duration_seconds": 2043.7548325061798,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 29,
+      "epoch_duration_seconds": 2037.164808511734,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 30,
+      "epoch_duration_seconds": 2036.4942555427551,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 31,
+      "epoch_duration_seconds": 2029.1918206214905,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 32,
+      "epoch_duration_seconds": 2012.4995679855347,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 33,
+      "epoch_duration_seconds": 2025.7874157428741,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 34,
+      "epoch_duration_seconds": 1994.6770539283752,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 35,
+      "epoch_duration_seconds": 1957.4156744480133,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 36,
+      "epoch_duration_seconds": 1919.3231287002563,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 37,
+      "epoch_duration_seconds": 1904.1029245853424,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 38,
+      "epoch_duration_seconds": 1897.5411584377289,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 39,
+      "epoch_duration_seconds": 1897.2445230484009,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 40,
+      "epoch_duration_seconds": 1892.5559692382812,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 41,
+      "epoch_duration_seconds": 1876.822925567627,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 42,
+      "epoch_duration_seconds": 1876.420441865921,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 43,
+      "epoch_duration_seconds": 1880.1571979522705,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 44,
+      "epoch_duration_seconds": 1888.039598941803,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 45,
+      "epoch_duration_seconds": 1904.2780249118805,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 46,
+      "epoch_duration_seconds": 1929.0219054222107,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 47,
+      "epoch_duration_seconds": 1931.3366816043854,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 48,
+      "epoch_duration_seconds": 1940.4675314426422,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 49,
+      "epoch_duration_seconds": 1950.2401049137115,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 50,
+      "epoch_duration_seconds": 1933.971328496933,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 51,
+      "epoch_duration_seconds": 1940.6300711631775,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 52,
+      "epoch_duration_seconds": 1936.4119396209717,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 53,
+      "epoch_duration_seconds": 1915.241200685501,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 54,
+      "epoch_duration_seconds": 1902.6095230579376,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 55,
+      "epoch_duration_seconds": 1899.4313158988953,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 56,
+      "epoch_duration_seconds": 1890.5447072982788,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 57,
+      "epoch_duration_seconds": 1906.3433566093445,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 58,
+      "epoch_duration_seconds": 1929.642373085022,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 59,
+      "epoch_duration_seconds": 1926.547619819641,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 60,
+      "epoch_duration_seconds": 1928.392318725586,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 61,
+      "epoch_duration_seconds": 1933.3112375736237,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 62,
+      "epoch_duration_seconds": 1939.3984949588776,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 63,
+      "epoch_duration_seconds": 1942.5053627490997,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 64,
+      "epoch_duration_seconds": 1957.8776078224182,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 65,
+      "epoch_duration_seconds": 2212.4851751327515,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 66,
+      "epoch_duration_seconds": 1735.2409479618073,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 67,
+      "epoch_duration_seconds": 1970.9509692192078,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 68,
+      "epoch_duration_seconds": 2004.9900953769684,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 69,
+      "epoch_duration_seconds": 1960.7143113613129,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 70,
+      "epoch_duration_seconds": 1985.513478755951,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 71,
+      "epoch_duration_seconds": 1924.1777486801147,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 72,
+      "epoch_duration_seconds": 2017.7356748580933,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 73,
+      "epoch_duration_seconds": 2024.8401246070862,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 74,
+      "epoch_duration_seconds": 2048.045217514038,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 75,
+      "epoch_duration_seconds": 1944.9365947246552,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 76,
+      "epoch_duration_seconds": 1959.6862301826477,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 77,
+      "epoch_duration_seconds": 1960.4831957817078,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 78,
+      "epoch_duration_seconds": 1938.435148715973,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 79,
+      "epoch_duration_seconds": 1976.6126976013184,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 80,
+      "epoch_duration_seconds": 2007.8921432495117,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 81,
+      "epoch_duration_seconds": 2009.445628643036,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 82,
+      "epoch_duration_seconds": 1993.258046388626,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 83,
+      "epoch_duration_seconds": 2004.2361562252045,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 84,
+      "epoch_duration_seconds": 2001.3700664043427,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 85,
+      "epoch_duration_seconds": 2008.8970425128937,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 86,
+      "epoch_duration_seconds": 2020.9447557926178,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 87,
+      "epoch_duration_seconds": 1932.7338716983795,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 88,
+      "epoch_duration_seconds": 1925.9107494354248,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 89,
+      "epoch_duration_seconds": 2045.9280936717987,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 90,
+      "epoch_duration_seconds": 1945.089245557785,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 91,
+      "epoch_duration_seconds": 1974.946293592453,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 92,
+      "epoch_duration_seconds": 1976.0570878982544,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 93,
+      "epoch_duration_seconds": 1992.6889307498932,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 94,
+      "epoch_duration_seconds": 1954.560765504837,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 95,
+      "epoch_duration_seconds": 1704.1585454940796,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 96,
+      "epoch_duration_seconds": 1709.3598682880402,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 97,
+      "epoch_duration_seconds": 1651.6002988815308,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 98,
+      "epoch_duration_seconds": 1804.792065858841,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    },
+    {
+      "epoch": 99,
+      "epoch_duration_seconds": 1837.038828611374,
+      "graph_size": 20,
+      "batch_size": 1024,
+      "epoch_size": 1280000,
+      "ablation_variant": "no_t2r",
+      "train": {
+        "devices": [
+          {
+            "device": 0,
+            "name": "NVIDIA GeForce RTX 4090",
+            "max_allocated_bytes": 5534487552,
+            "max_reserved_bytes": 5710544896,
+            "max_allocated_mib": 5278.0986328125,
+            "max_reserved_mib": 5446.0,
+            "max_allocated_gib": 5.154393196105957,
+            "max_reserved_gib": 5.318359375
+          }
+        ],
+        "total_max_allocated_bytes": 5534487552,
+        "total_max_reserved_bytes": 5710544896,
+        "total_max_allocated_mib": 5278.0986328125,
+        "total_max_reserved_mib": 5446.0,
+        "total_max_allocated_gib": 5.154393196105957,
+        "total_max_reserved_gib": 5.318359375
+      }
+    }
+  ],
+  "summary": {
+    "peak_train_allocated_bytes": 5534487552,
+    "peak_train_reserved_bytes": 5710544896,
+    "peak_train_allocated_mib": 5278.0986328125,
+    "peak_train_reserved_mib": 5446.0,
+    "peak_train_allocated_gib": 5.154393196105957,
+    "peak_train_reserved_gib": 5.318359375
+  }
+}

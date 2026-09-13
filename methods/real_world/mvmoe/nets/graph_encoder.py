@@ -1,4 +1,4 @@
-﻿import torch
+import torch
 import numpy as np
 from torch import nn
 import math
@@ -39,6 +39,7 @@ class MultiHeadAttention(nn.Module):
 
         self.norm_factor = 1 / math.sqrt(key_dim)  # See Attention is all you need
 
+        # parameter表示需要在训练中进行优化的参数
         self.W_query = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_key = nn.Parameter(torch.Tensor(n_heads, input_dim, key_dim))
         self.W_val = nn.Parameter(torch.Tensor(n_heads, input_dim, val_dim))
@@ -57,7 +58,7 @@ class MultiHeadAttention(nn.Module):
         """
 
         :param q: queries (batch_size, n_query, input_dim)
-        :param h: data (batch_size, graph_size, input_dim) 
+        :param h: data (batch_size, graph_size, input_dim) 键和值
         :param mask: mask (batch_size, n_query, graph_size) or viewable as that (i.e. can be 2 dim if n_query == 1)
         Mask should contain 1 if attention is not possible (i.e. mask is negative adjacency)
         :return:
@@ -244,4 +245,3 @@ class GraphAttentionEncoder(nn.Module):
             h,  # (batch_size, graph_size, embed_dim)
             h.mean(dim=1),  # average to get embedding of graph, (batch_size, embed_dim)
         )
-

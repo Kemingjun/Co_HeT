@@ -31,8 +31,8 @@
  "shrink_size": null,
  "data_distribution": null,
  "log_step": 50,
- "log_dir": "logs",
- "run_name": "real_world_ECHO_size_10_20260628T230049",
+ "log_dir": "tensorboard",
+ "run_name": "industrial_echo_n10_seed_1234_20260902T195209",
  "output_dir": "outputs",
  "epoch_start": 0,
  "checkpoint_epochs": 1,
@@ -41,5 +41,5 @@
  "no_tensorboard": false,
  "no_progress_bar": false,
  "use_cuda": true,
- "save_dir": "outputs/hrsp_10/real_world_ECHO_size_10_20260628T230049"
+ "save_dir": "outputs/hrsp_10/industrial_echo_n10_seed_1234_20260902T195209"
 }
