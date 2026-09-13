@@ -78,7 +78,7 @@ Co-HeT is a Transformer-based encoder-decoder policy network for task-coalition 
 
 <p align="center">
   <a href="docs/figures/architecture.pdf">
-    <img src="docs/figures/architecture_overview.png?v=2" alt="Architecture of the Co-HeT policy network" width="100%">
+    <img src="docs/figures/architecture_overview.png?v=2" alt="Architecture of the Co-HeT policy network" width="80%">
   </a>
   <br>
   <em>Fig. 4. Architecture of the Co-HeT policy network.</em>
