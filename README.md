@@ -77,7 +77,9 @@ The following Webots video illustrates coordinated robot execution in the simula
 Co-HeT is a Transformer-based encoder-decoder policy network for task-coalition scheduling. Rather than selecting only the next task, it constructs the complete heterogeneous robot coalition required for synchronized execution.
 
 <p align="center">
-  <a href="docs/figures/architecture.pdf">View the Co-HeT model architecture (PDF)</a>
+  <a href="docs/figures/architecture.pdf">
+    <img src="docs/figures/architecture.png" alt="Architecture of the Co-HeT policy network" width="100%">
+  </a>
   <br>
   <em>Fig. 4. Architecture of the Co-HeT policy network.</em>
 </p>
