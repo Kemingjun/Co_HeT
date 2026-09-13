@@ -1,4 +1,4 @@
-"""Run synthetic exact and metaheuristic baselines.
+"""Run synthetic MILP and metaheuristic baselines.
 
 The metaheuristic loop uses count <= iteration_limit:
 iteration_limit=100 can complete 101 outer iterations, with duration=3600.

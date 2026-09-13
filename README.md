@@ -10,17 +10,17 @@ This repository contains the official implementation and baseline algorithms for
 
 ## 📌 Overview
 
-Modern smart manufacturing and logistics increasingly involve coupled operations that cannot be completed by a single robot type. In a smart warehouse, forklifts, AGVs, mobile manipulators, and human operators may need to coordinate at collaborative workstations, where each task can start only after all required robot types are present and available.
+Modern smart manufacturing and logistics increasingly involve coupled operations that cannot be completed by a single robot type. In a smart warehouse, forklifts, AGVs, and mobile manipulators may need to coordinate at collaborative workstations, where each task can start only after all required robot types are present and available.
 
 Co-HeT studies **Collaborative Heterogeneous Robot Scheduling Problems (CHRSP)**, a class of problems that abstracts this workflow into synchronized scheduling of functionally heterogeneous robot coalitions. This repository provides the proposed model, adapted DRL baselines, MILP and metaheuristic baselines, synthetic benchmark and industrial simulation instances, visualization media, and pretrained checkpoints.
 
 <p align="center">
   <img src="docs/figures/logistic.png" width="600" alt="Collaborative heterogeneous robot scheduling scenario">
   <br>
-  <em>Fig. 1. A smart warehouse scenario involving synchronized collaboration among functionally heterogeneous robots.</em>
+  <em>A smart warehouse scenario involving synchronized collaboration among functionally heterogeneous robots.</em>
 </p>
 
-The main challenge is the tight coupling among task allocation, heterogeneous coalition formation, and execution sequencing. These coupled decisions create a large combinatorial action space, strict spatiotemporal synchronization constraints, cross-schedule dependencies, and potential deadlocks. Co-HeT reformulates CHRSP as an MDP with composite task-coalition actions and learns a constructive policy for synchronized schedule generation.
+The main challenge is the tight coupling among task allocation, heterogeneous coalition formation, and execution sequencing. These coupled decisions create a large combinatorial action space, strict spatiotemporal synchronization constraints, cross-schedule dependencies, and potential task-level resource-allocation deadlocks. Co-HeT reformulates CHRSP as an MDP with composite task-coalition actions and learns a constructive policy for synchronized schedule generation.
 
 ## 🎥 Visualization Demo
 
@@ -40,14 +40,14 @@ The animation shows the complete lifecycle of collaborative task execution under
 
 ## 🏭 Industrial Simulation Case Study
 
-We further evaluate Co-HeT in a simulation based on an industrial battery plate transfer scenario. The simulated system involves a carrier, a shuttle, and a forklift, which coordinate across supply, handover, docking, and processing stations under synchronized task requirements. Quantitative results come from the industrial scheduling simulator; Webots visualizes the workflow. These experiments assess scheduling performance under the modeled conditions and do not provide physical-robot deployment validation.
+We further evaluate Co-HeT in an industrial simulation case study based on a battery plate transfer scenario. Each task requires one carrier, one shuttle, and one forklift to coordinate across supply, handover, docking, and processing stations. The evaluated fleet comprises 4 carriers, 8 shuttles, and 4 forklifts. Quantitative results come from the industrial scheduling simulator; Webots visualizes the workflow. These experiments assess scheduling performance under the modeled conditions and do not provide physical-robot deployment validation.
 
 The benchmark uses 100 generated test instances at each of 10, 20, 30 and 40 tasks. All six DRL methods are retrained on industrially parameterized simulation data at each scale. The [industrial experiment guide](docs/experiments/industrial/README.md) describes generation rules, simulation parameters, model training and result coverage.
 
 <p align="center">
   <img src="docs/figures/scenario.png" width="780" alt="Industrial scenario reference photograph and corresponding Webots simulation layout">
   <br>
-  <em>Fig. 2. (a) Industrial battery plate transfer scenario used as context; (b) corresponding Webots simulation layout.</em>
+  <em>(a) Industrial battery plate transfer scenario used as context; (b) corresponding Webots simulation layout.</em>
 </p>
 
 The workflow is summarized as follows:
@@ -59,7 +59,7 @@ The workflow is summarized as follows:
 <p align="center">
   <img src="docs/figures/workflow.png" width="780" alt="Simulated industrial task execution workflow in Webots">
   <br>
-  <em>Fig. 3. Simulated collaborative transfer task execution in Webots, from task-point specification to synchronized handover and delivery.</em>
+  <em>Simulated collaborative transfer task execution in Webots, from task-point specification to synchronized handover and delivery.</em>
 </p>
 
 The following Webots video illustrates coordinated robot execution in the simulated industrial workflow.
@@ -81,12 +81,12 @@ Co-HeT is a Transformer-based encoder-decoder policy network for task-coalition 
     <img src="docs/figures/architecture_overview.png?v=2" alt="Architecture of the Co-HeT policy network" width="60%">
   </a>
   <br>
-  <em>Fig. 4. Architecture of the Co-HeT policy network.</em>
+  <em>Architecture of the Co-HeT policy network.</em>
 </p>
 
 The model is organized around two components.
 
-- **Dual-stream encoder with mutual contextual fusion.** Task features and robot states are embedded by separate attention streams, then exchanged through task-to-robot and robot-to-task contextual attention.
+- **Dual-stream encoder with Bidirectional Contextual Fusion.** Task features and robot states are embedded by separate attention streams, then exchanged through task-to-robot and robot-to-task contextual attention.
 - **Hierarchical collaborative decoder.** The decoder first selects the next task and then autoregressively forms the required robot coalition under feasibility masks and synchronization constraints.
 
 This design aligns the policy with CHRSP by making task decisions aware of robot availability and conditioning coalition formation on the selected task.
@@ -166,6 +166,8 @@ Composite task–coalition actions synchronize the required functional types and
 
 ## 🚀 Evaluate Co-HeT
 
+The commands below are single-instance sanity checks of the evaluation entry point (`--val_size 1`). The paper's main comparison uses 100 fixed instances per task-scale and robot-type combination; see the [main comparison guide](docs/experiments/main_comparison/README.md) and [fixed-instance evaluation instructions](docs/reproducibility.md).
+
 Greedy decoding on a 20-task, two-robot-type checkpoint:
 
 ```bash
@@ -211,15 +213,15 @@ The dataset family is resolved automatically from `--robot_type` and the checkpo
 
 ## 🧪 Evaluate DRL Baselines
 
-The repository includes CHRSP-adapted DRL baselines under the same reward, action space, data generation process, and inference protocol:
+The repository includes CHRSP-adapted DRL baselines using the same objective function, state-transition rules, feasibility constraints, and composite task–coalition action definition, while preserving their characteristic designs:
 
 - **AM**: attention model baseline with CHRSP task-coalition decoding.
 - **HDRL**: preserves history-aware dispatching and route-context modeling.
 - **TDRL**: preserves token-style state coding and recurrent dynamic token updates.
 - **MVMoE**: introduces sparse mixture-of-experts layers into an AM-style architecture.
-- **ECHO**: preserves dual-modality task encoding and historical-resource-aware decoding.
+- **ECHO**: preserves its dual-modality encoder and PFCA context.
 
-Quick evaluation examples:
+Single-instance sanity-check examples (`--val_size 1`); use the [fixed-instance evaluation instructions](docs/reproducibility.md) for the paper's 100-instance settings:
 
 ```bash
 conda run -n my310env python scripts/eval_drl.py \
@@ -268,7 +270,7 @@ conda run -n my310env python scripts/train_drl.py --method cohet --robot_type 2 
 
 Change `--method` to `am`, `hdrl`, `tdrl`, `mvmoe` or `echo` to select its implementation. Additional arguments are forwarded to its `run.py`. The example applies only to Co-HeT at n=20, k=2; use each model's adjacent `args.json` to preserve its actual batch size, precision and other training settings.
 
-For an optional short training check:
+For an optional short training sanity check of the entry point (not the paper's training configuration):
 
 ```bash
 conda run -n my310env python scripts/train_drl.py --method cohet --robot_type 2 --graph_size 20 --n_epochs 1 --epoch_size 128 --batch_size 64 --val_size 64 --eval_batch_size 64 --no_tensorboard --no_progress_bar --run_name smoke_cohet
@@ -310,7 +312,7 @@ The following figures show the validation mean cost across training epochs for t
 
 ## 🧩 Conventional Baselines
 
-The repository packages the following exact and metaheuristic baselines. See the [baseline guide](methods/conventional/README.md) for algorithm settings:
+The repository packages the following MILP and metaheuristic baselines. See the [baseline guide](methods/conventional/README.md) for algorithm settings:
 
 - `gurobi`: Gurobi MILP solver.
 - `alns`: Adaptive Large Neighborhood Search.
@@ -328,7 +330,7 @@ The entry point accepts an instance name or a selection of scales and instances.
 
 ## 📊 Batch Benchmark
 
-Run a lightweight batch benchmark over selected DRL methods:
+Run a single-instance sanity check of the batch benchmark entry point. This example uses `--val_size 1`; the [main comparison](docs/experiments/main_comparison/README.md) uses 100 fixed instances per task-scale and robot-type combination:
 
 ```bash
 conda run -n my310env python scripts/benchmark_all.py \
@@ -358,6 +360,18 @@ Per-instance results are provided for the [main comparison](docs/experiments/mai
 
 [Baseline adaptations](docs/method_adaptations.md) and [reproducibility notes](docs/reproducibility.md) describe the model settings, datasets and objective definitions.
 
+## Reproducibility Materials
+
+| Material | Location |
+|---|---|
+| Data generation | [Synthetic generator](scripts/generate_synthetic_extension.py) and [generation configuration](instances/synthetic/generation_config.json); [industrial generator](scripts/generate_industrial_testset.py) and [generation configuration](instances/real_world_test100_seed20260906/generation_config.json) |
+| Random seeds | [Training and inference seeds](docs/reproducibility.md); instance-generation seeds and rules in the generation configurations above; [industrial seeds](docs/experiments/industrial/README.md#settings) |
+| Model configurations and checkpoints | [Checkpoint guide](checkpoints/README.md); each model's adjacent `args.json` records its training settings |
+| Training and evaluation | [Training entry point](scripts/train_drl.py), [evaluation entry point](scripts/eval_drl.py), [baseline adaptations](docs/method_adaptations.md) and [MILP/metaheuristic guide](methods/conventional/README.md) |
+| Main comparison | [Experiment configuration](scripts/experiments/main/experiment.json), [fixed-instance runner](scripts/experiments/main/task_runner.py) and [results and reconstruction](docs/experiments/main_comparison/README.md) |
+| Convergence curves | [Training cost](#training-convergence) and [validation mean cost](#validation-convergence) |
+| Industrial simulation | [Parameters, workflow, training/evaluation entries and results](docs/experiments/industrial/README.md); [Webots video](media/cohet_webots_industrial_case.mp4) |
+
 ## 🙏 Acknowledgements
 
 We thank the authors of the following open-source projects, which served as important references for the learning-based baselines adapted in this repository:
@@ -368,4 +382,4 @@ We thank the authors of the following open-source projects, which served as impo
 - **MVMoE**: [RoyalSkye/Routing-MVMoE](https://github.com/RoyalSkye/Routing-MVMoE)
 - **ECHO**: [wuuu110/echo](https://github.com/wuuu110/echo)
 
-We also acknowledge the exact and metaheuristic baselines, including Gurobi, ALNS, IGA, DABC, and DIWO, which are adapted to the same CHRSP setting for fair comparison.
+We also acknowledge the MILP and metaheuristic baselines, including Gurobi, ALNS, IGA, DABC, and DIWO, which are adapted to the same CHRSP setting for fair comparison.

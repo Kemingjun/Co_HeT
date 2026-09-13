@@ -1,6 +1,6 @@
 # Industrial simulation case study
 
-This simulation is based on an industrial battery-plate transfer scenario with a carrier, a shuttle and a forklift. Webots illustrates the workflow; the quantitative benchmark uses the industrial scheduling simulator. Results characterize performance under the modeled conditions, without physical-robot deployment validation.
+This industrial simulation case study is based on a battery-plate transfer scenario. Each task requires one carrier, one shuttle and one forklift from the fleet of 4 carriers, 8 shuttles and 4 forklifts. Webots illustrates the workflow; the quantitative benchmark uses the industrial scheduling simulator. Results characterize performance under the modeled conditions, without physical-robot deployment validation.
 
 ## Settings
 
@@ -32,7 +32,7 @@ Each of the six DRL methods is retrained on generated industrial simulation data
 - [Gurobi results](gurobi/per_instance_results.csv): 300 time-limited incumbents for n = 10, 20, 30, with original certificates and routes. At n = 40, all 100 runs reached the 3600 s limit: 79 had no incumbent and 21 returned feasible incumbents. A dash in the comparison table indicates that a complete 100-instance objective comparison is unavailable.
 - The CSV reports schedule objectives evaluated from saved routes alongside the original solver incumbent objective. Bounds and MIP gaps refer to that original incumbent, not the route-derived schedule objective. All original values are preserved; runtime is the time reported by the solver.
 
-The [baseline guide](../../../methods/conventional/README.md#alns-settings) lists ALNS settings.
+The [baseline guide](../../../methods/conventional/README.md) lists ALNS settings.
 
 DRL computation times are arithmetic means of the recorded per-instance runtimes over the 100 test instances at each scale, using Sample-1280 inference.
 

@@ -2,7 +2,7 @@
 
 This release includes the conventional baselines used for comparison with Co-HeT:
 
-- **Gurobi**: exact mixed-integer programming formulation.
+- **Gurobi**: MILP formulation solved with Gurobi.
 - **ALNS**: adaptive large neighborhood search.
 - **IGA**: iterated greedy algorithm.
 - **DABC**: discrete artificial bee colony.

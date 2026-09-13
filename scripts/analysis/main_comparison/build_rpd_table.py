@@ -22,7 +22,7 @@ CELL_KEYS = ["category", "method", "mode", "kappa", "size"]
 SIZES = (10, 20, 50, 100)
 KAPPAS = (2, 3)
 METHOD_GROUPS = (
-    ("Exact", ("Gurobi",)),
+    ("MILP", ("Gurobi",)),
     ("Meta.", ("ALNS", "IGA", "DABC", "DIWO")),
     ("Greedy", ("AM", "MVMoE", "HDRL", "TDRL", "ECHO", "Co-HeT")),
     ("Sample-1280", ("AM", "MVMoE", "HDRL", "TDRL", "ECHO", "Co-HeT")),
@@ -37,7 +37,7 @@ def _normalise_mode(frame: pd.DataFrame) -> pd.DataFrame:
 
 def _category_for_source(source: str, mode: str) -> str:
     if source == "Gurobi":
-        return "Exact"
+        return "MILP"
     if source == "Metaheuristic":
         return "Meta."
     if source == "DRL" and mode == "greedy":
