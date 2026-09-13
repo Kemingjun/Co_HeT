@@ -128,7 +128,7 @@ checkpoints/
   cohet|am|hdrl|tdrl|mvmoe|echo/
     type_2|type_3/
       size_10|size_20|size_50|size_100/
-  real_world/
+  real_world/           Models retrained on industrial simulation data
     cohet|am|hdrl|tdrl|mvmoe|echo/
       size_10|size_20|size_30|size_40/
 
@@ -370,7 +370,7 @@ Per-instance results are provided for the [main comparison](docs/experiments/mai
 | Training and evaluation | [Training entry point](scripts/train_drl.py), [evaluation entry point](scripts/eval_drl.py), [baseline adaptations](docs/method_adaptations.md) and [MILP/metaheuristic guide](methods/conventional/README.md) |
 | Main comparison | [Experiment configuration](scripts/experiments/main/experiment.json), [fixed-instance runner](scripts/experiments/main/task_runner.py) and [results and reconstruction](docs/experiments/main_comparison/README.md) |
 | Convergence curves | [Training cost](#training-convergence) and [validation mean cost](#validation-convergence) |
-| Industrial simulation | [Parameters, workflow, training/evaluation entries and results](docs/experiments/industrial/README.md); [Webots video](media/cohet_webots_industrial_case.mp4) |
+| Industrial simulation | [Guide and results](docs/experiments/industrial/README.md); Co-HeT industrial scheduling environment: [parameter configuration](methods/real_world/cohet/problems/hrsp/paramet_hrsp.py) and [state transitions](methods/real_world/cohet/problems/hrsp/state_hrsp.py); [Webots video](media/cohet_webots_industrial_case.mp4) |
 
 ## 🙏 Acknowledgements
 

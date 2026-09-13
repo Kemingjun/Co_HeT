@@ -19,6 +19,8 @@ This industrial simulation case study is based on a battery-plate transfer scena
 
 Carrier travel includes reaching its shuttle, traveling to handover, and delivery. Forklift travel includes reaching supply and then handover. The carried shuttle does not add another travel-time term. Waiting and operation times affect availability and tardiness, rather than travel time. Tardiness uses shuttle release time.
 
+The Co-HeT industrial scheduling environment provides its [parameter configuration](../../../methods/real_world/cohet/problems/hrsp/paramet_hrsp.py) and [state-transition implementation](../../../methods/real_world/cohet/problems/hrsp/state_hrsp.py). These implement travel, synchronized handover, delivery, robot availability and tardiness in the scheduling workflow.
+
 The industrial layout, robot speeds, and operation times are parameterized using data collected on site at an industrial battery-plate transfer facility. The accompanying photograph illustrates the operational setting. Test instances are generated using these parameters and the documented task-generation rules. The reported performance results are obtained in simulation.
 
 The [test-set description](../../../instances/real_world_test100_seed20260906/README.md) and [generation configuration](../../../instances/real_world_test100_seed20260906/generation_config.json) specify the generated layout and deadlines. Supply and handover positions share a randomly selected side; station positions are sampled from fixed slots. Deadlines follow a task-index rule with bounded noise and are shuffled. The [generator](../../../scripts/generate_industrial_testset.py) produces 100 independent test instances at each of n = 10, 20, 30, 40, using the seeds above.
