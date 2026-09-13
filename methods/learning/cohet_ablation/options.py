@@ -1,15 +1,19 @@
 import os
 import time
 import argparse
+import math
+import uuid
 import torch
+
+from amp_utils import SUPPORTED_PRECISIONS
 
 
 def get_options(args=None):
     parser = argparse.ArgumentParser(
-        description="Attention based model for solving the Travelling Salesman Problem with Reinforcement Learning")
+        description="Train or evaluate Co-HeT architectural ablations for CHRSP")
 
     # Data
-    parser.add_argument('--problem', default='hrsp', help="The problem to solve, default 'tsp'")
+    parser.add_argument('--problem', default='hrsp', help="The problem to solve, default 'hrsp'")
     parser.add_argument('--graph_size', type=int, default=20, help="The size of the problem graph")
     parser.add_argument('--batch_size', type=int, default=1024, help='Number of instances per batch during training')
     parser.add_argument('--epoch_size', type=int, default=1280000, help='Number of instances per epoch during training')
@@ -46,6 +50,10 @@ def get_options(args=None):
     )
 
     # Training
+    parser.add_argument('--precision', choices=SUPPORTED_PRECISIONS, default='fp32',
+                        help='Training and validation precision; amp_fp16 requires CUDA')
+    parser.add_argument('--grad_scaler_init_scale', type=float, default=16.0,
+                        help='Initial gradient scale for amp_fp16 (default: 16.0)')
     parser.add_argument('--lr_model', type=float, default=1e-4, help="Set the learning rate for the actor network")
     parser.add_argument('--lr_critic', type=float, default=1e-4, help="Set the learning rate for the critic network")
     parser.add_argument('--lr_decay', type=float, default=1.0, help='Learning rate decay per epoch')
@@ -91,6 +99,11 @@ def get_options(args=None):
     opts = parser.parse_args(args)
 
     opts.use_cuda = torch.cuda.is_available() and not opts.no_cuda
+    if opts.precision == 'amp_fp16' and not opts.use_cuda:
+        parser.error('--precision amp_fp16 requires CUDA; use --precision fp32 on CPU')
+    if not math.isfinite(opts.grad_scaler_init_scale) or opts.grad_scaler_init_scale <= 0:
+        parser.error('--grad_scaler_init_scale must be finite and positive')
+    opts.attempt_id = uuid.uuid4().hex
     opts.run_name = "{}_{}_{}_{}".format(
         opts.run_name,
         opts.ablation_variant,
