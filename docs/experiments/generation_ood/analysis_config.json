@@ -48,7 +48,7 @@
   "generator_config": "generator_config.json",
   "statistics": {
     "objective_column": "objective",
-    "objective_definition": "0.5 * distance + 0.5 * tardiness",
+    "objective_definition": "0.5 * total_travel_time + 0.5 * total_tardiness (travel_time = distance / velocity; velocity = 1)",
     "model_objective": "Objective returned by the model; not the input column used for statistical summaries",
     "paired_unit": "instance_index within method, kappa, size and decode, paired to the ID mechanism",
     "degradation_percent": "100 * (objective - id_objective) / id_objective",
