@@ -14,7 +14,7 @@ The main training seed is 1234; additional n=20, k=2 models use seeds 2345 and 3
 conda run -n my310env python scripts/experiments/main/task_runner.py --phase quality --method Co-HeT --kappa 2 --size 20 --mode sample1280 --run-id cohet_n20_quality --gpu-id 0 --attempt-dir outputs/cohet_n20_quality
 ```
 
-This command starts evaluation. Its `timing` phase invokes the method's original `eval.py` in five separate processes, with 100 instances per run and evaluation batch size 1. It checks GPU contention and reports the median of the five run means, without trimming durations. Timing uses the evaluator's native timer and sampling initialization; the fixed inference seed above applies to the quality phase. The published timings were measured on an RTX 5090. Industrial training/evaluation commands and saved-result reconstruction are described on the [industrial page](experiments/industrial/README.md). The [main comparison page](experiments/main_comparison/README.md) describes BKS, RPD and table reconstruction.
+This command starts quality evaluation. Industrial training/evaluation commands and saved-result reconstruction are described on the [industrial page](experiments/industrial/README.md). The [main comparison page](experiments/main_comparison/README.md) describes BKS, RPD, the published timing protocol and table reconstruction.
 
 Data-generation entry points are `scripts/generate_synthetic_extension.py` and `scripts/generate_industrial_testset.py`. Use `--help` for their generation options. New training and evaluation outputs should use a fresh run name and output directory.
 

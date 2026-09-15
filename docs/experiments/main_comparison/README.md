@@ -21,13 +21,7 @@ The published DRL computation times were measured on an RTX 5090 and report the 
 
 For 26 metaheuristic cells, time is the mean of four measured runs: instances I10 and I60, each repeated twice (104 rows in `meta_timing_runs.csv`). The other six metaheuristic cells—ALNS and IGA at k=2, n=100 and k=3, n=50 or 100—show the 3600 s budget, not an observed mean. Gurobi at n=100 likewise shows the 3600 s contract limit; this repository contains no source results for those cells, so the missing objectives cannot establish infeasibility. The `time_source`, `time_n` and `objective_n` fields in `timing_summary.csv` distinguish these cases.
 
-To measure one setting with the same evaluation procedure, use an idle CUDA GPU and a new output directory. No specific GPU model is required; measured runtimes depend on the hardware and software environment.
-
-```powershell
-conda run -n my310env python scripts/experiments/main/task_runner.py --phase timing --method Co-HeT --kappa 2 --size 20 --mode sample1280 --run-id cohet_n20_timing --gpu-id 0 --attempt-dir outputs/cohet_n20_timing
-```
-
-Each repetition runs the method's `eval.py` in a fresh process with evaluation batch size 1. The evaluator records decoding and result-transfer time, excluding model and dataset loading. No separate warmup pass or duration-based trimming is applied. The output contains per-instance timings and the median of the five run means.
+For the published DRL measurements, each repetition ran the method's `eval.py` in a fresh process with evaluation batch size 1 and the evaluator's native sampling initialization. The timer covered decoding and result transfer, excluding model and dataset loading. No separate warmup pass or duration-based trimming was applied.
 
 Rebuild the main table from the repository root, using a new output directory:
 

@@ -1,5 +1,5 @@
 {
-  "purpose": "Collect six-DRL per-instance quality and timing for the main comparison",
+  "purpose": "Collect six-DRL per-instance quality for the main comparison",
   "methods": ["Co-HeT", "AM", "MVMoE", "HDRL", "TDRL", "ECHO"],
   "kappas": [2, 3],
   "sizes": [10, 20, 50, 100],
@@ -14,15 +14,7 @@
   "distance_weight": 0.5,
   "tardiness_weight": 0.5,
   "robot_count_by_type": {"2": [4, 8], "3": [4, 6, 8]},
-  "timing_batch_size": 1,
-  "timing_repeats": 5,
-  "timing_entrypoint": "Each method's eval.py in a separate process for each complete run",
-  "timing_device": "CUDA GPU, without competing GPU jobs",
-  "timing_warmup_instances": 0,
-  "timing_eval_seed": null,
-  "timing_aggregation": "median of five complete 100-instance run means; no duration-based trimming",
   "expected_quality_rows": 9600,
-  "expected_timing_raw_rows": 48000,
   "rpd_calculated": false,
   "rpd_denominator_policy": "Determine per-instance BKS only after merging DRL, Gurobi, and all metaheuristic feasible objectives"
 }

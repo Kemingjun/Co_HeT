@@ -1,16 +1,11 @@
 import argparse
 import csv
 import json
-import math
 import os
 import pickle
 import random
-import re
-import statistics
 import shlex
-import subprocess
 import sys
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -24,7 +19,7 @@ sys.path.insert(0, str(SCRIPT_DIR))
 
 from package_common import (  # noqa: E402
     EVAL_SEED, KAPPAS, METHODS, MODES, PACKAGE_ROOT, ROBOT_NUM_LISTS,
-    SAMPLE_WIDTHS, SIZES, TIMING_REPEATS, cell_name, load_json, method_slug,
+    SAMPLE_WIDTHS, SIZES, cell_name, load_json, method_slug,
     numeric_instance_index, package_relative, task_id,
     validate_run_id, write_json,
 )
@@ -59,38 +54,6 @@ def decode_one(model, cpu_batch, device, width, move_to):
     if sequence is None or cost is None or len(cost) != 1:
         raise RuntimeError("Expected one feasible solution for one instance")
     return sequence[0], cost[0]
-
-
-def query_gpu_contention(physical_gpu_id, allowed_pids=()):
-    command = [
-        "nvidia-smi", "--query-compute-apps=gpu_uuid,pid,used_memory",
-        "--format=csv,noheader,nounits",
-    ]
-    try:
-        gpu = subprocess.run([
-            "nvidia-smi", "--id={}".format(physical_gpu_id),
-            "--query-gpu=uuid", "--format=csv,noheader,nounits",
-        ], check=True, capture_output=True, text=True, timeout=20)
-        uuids = [line.strip() for line in gpu.stdout.splitlines() if line.strip()]
-        if len(uuids) != 1:
-            raise OSError("Unable to identify the requested GPU")
-        completed = subprocess.run(command, check=False, capture_output=True, text=True, timeout=20)
-    except (OSError, subprocess.SubprocessError) as error:
-        return {"checked_at": utc_now(), "available": False, "contended": True, "error": str(error), "foreign_processes": []}
-    if completed.returncode != 0:
-        return {
-            "checked_at": utc_now(), "available": False, "contended": True,
-            "error": completed.stderr.strip() or "nvidia-smi failed", "foreign_processes": [],
-        }
-    foreign = []
-    for line in completed.stdout.splitlines():
-        parts = [part.strip() for part in line.split(",")]
-        if len(parts) >= 2 and parts[0] == uuids[0] and parts[1].isdigit() and int(parts[1]) not in {os.getpid(), *allowed_pids}:
-            foreign.append({"pid": int(parts[1]), "used_gpu_memory_mib": parts[2] if len(parts) > 2 else "unknown"})
-    return {
-        "checked_at": utc_now(), "available": True, "contended": bool(foreign),
-        "error": None, "foreign_processes": foreign,
-    }
 
 
 def atomic_csv(path, rows):
@@ -203,84 +166,6 @@ def quality_phase(model, instances, device, width, move_to, identity, output_dir
     }
 
 
-def timing_command(method_dir, checkpoint, cell, mode, output_pickle):
-    return [
-        sys.executable, "-B", "-u", str(method_dir / "eval.py"), cell,
-        "--model", str(checkpoint.parent),
-        "--decode_strategy", "sample" if mode == "sample1280" else "greedy",
-        "--width", str(SAMPLE_WIDTHS[mode]), "--eval_batch_size", "1",
-        "-o", str(output_pickle),
-    ]
-
-
-def read_timing_run(output_pickle, stdout_path):
-    # Only read the trusted result produced by the local evaluator subprocess.
-    with output_pickle.open("rb") as stream:
-        results, parallelism = pickle.load(stream)
-    if len(results) != 100 or parallelism != 1:
-        raise ValueError("Expected 100 results with evaluation batch size 1")
-    durations = [float(row[2]) for row in results]
-    if any(not math.isfinite(value) or value <= 0 for value in durations):
-        raise ValueError("Timing durations must be finite and positive")
-    match = re.search(r"Average serial duration:\s*([0-9eE+.-]+)",
-                      stdout_path.read_text(encoding="utf-8", errors="replace"))
-    run_mean = statistics.fmean(durations)
-    if match is None or abs(float(match.group(1)) - run_mean) > 1e-9:
-        raise ValueError("Saved durations do not match the evaluator's logged mean")
-    return results, run_mean
-
-
-def timing_phase(method_dir, checkpoint, physical_gpu_id, identity, output_dir):
-    files = instance_files(identity["kappa"], identity["size"])
-    env = {**os.environ, "CUDA_VISIBLE_DEVICES": str(physical_gpu_id),
-           "COHET_INSTANCE_DIR": str(files[0].parent.parent),
-           "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1",
-           "PYTHONDONTWRITEBYTECODE": "1"}
-    rows, run_means = [], []
-    for repeat in range(1, TIMING_REPEATS + 1):
-        before = query_gpu_contention(physical_gpu_id)
-        if before["contended"]:
-            raise RuntimeError("Timing requires an idle GPU and an available contention check")
-        output_pickle = output_dir / f"repeat_{repeat}.pkl"
-        stdout_path = output_dir / f"repeat_{repeat}.log"
-        command = timing_command(method_dir, checkpoint, files[0].parent.name,
-                                 identity["mode"], output_pickle)
-        contended = False
-        with stdout_path.open("xb") as stdout:
-            process = subprocess.Popen(command, cwd=method_dir, env=env,
-                                       stdout=stdout, stderr=subprocess.STDOUT)
-            try:
-                while True:
-                    snapshot = query_gpu_contention(physical_gpu_id, (process.pid,))
-                    contended = contended or snapshot["contended"]
-                    if process.poll() is not None:
-                        break
-                    time.sleep(2)
-                returncode = process.wait()
-            except BaseException:
-                if process.poll() is None:
-                    process.terminate()
-                    process.wait()
-                raise
-        if returncode != 0:
-            raise RuntimeError(f"Original evaluator failed; see {stdout_path}")
-        results, run_mean = read_timing_run(output_pickle, stdout_path)
-        for position, (cost, _, duration) in enumerate(results, 1):
-            rows.append({
-                **{key: identity[key] for key in ("method", "kappa", "size", "mode")},
-                "repeat": repeat, "position": position, "cost": float(cost),
-                "duration_s": float(duration), "contended": contended,
-            })
-        atomic_csv(output_dir / "timing_raw.csv", rows)
-        if contended:
-            raise RuntimeError("GPU contention detected; this attempt is not valid timing")
-        output_pickle.unlink()
-        run_means.append(run_mean)
-        print(f"Timing repeat {repeat}/{TIMING_REPEATS}: {run_mean:.9g} s/instance", flush=True)
-    return {"row_count": len(rows), "run_means_s": run_means,
-            "median_s": statistics.median(run_means), "contended": False}
-
-
 def input_signature(method, kappa, size, checkpoint, args_path):
     if not checkpoint.is_file() or not args_path.is_file():
         raise FileNotFoundError("Checkpoint and adjacent args.json are required")
@@ -291,7 +176,7 @@ def input_signature(method, kappa, size, checkpoint, args_path):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Run one DRL main-table task")
-    parser.add_argument("--phase", choices=("smoke", "quality", "timing"), required=True)
+    parser.add_argument("--phase", choices=("smoke", "quality"), required=True)
     parser.add_argument("--method", choices=METHODS, required=True)
     parser.add_argument("--kappa", type=int, choices=KAPPAS, required=True)
     parser.add_argument("--size", type=int, choices=SIZES, required=True)
@@ -320,7 +205,7 @@ def main():
         "status": "RUNNING", "started_at": utc_now(), "phase": options.phase,
         "run_id": options.run_id, "method": options.method, "kappa": options.kappa,
         "size": options.size, "mode": options.mode, "sample_width": SAMPLE_WIDTHS[options.mode],
-        "eval_seed": None if options.phase == "timing" else EVAL_SEED,
+        "eval_seed": EVAL_SEED,
         "gpu_id": options.gpu_id, "input_signature": signature,
         "log_file": package_relative(os.environ["COHET_LOG_FILE"]) if os.environ.get("COHET_LOG_FILE") else None,
     }
@@ -345,18 +230,15 @@ def main():
             "mode": options.mode, "robot_num_list": json.dumps(ROBOT_NUM_LISTS[options.kappa]),
         }
         width = SAMPLE_WIDTHS[options.mode]
-        if options.phase in ("smoke", "quality"):
-            set_eval_seed(EVAL_SEED)
-            load_model, move_to = import_method_runtime(method_dir)
-            model, _ = load_model(str(checkpoint))
-            device = torch.device("cuda:0")
-            model.to(device)
-            model.eval()
-            count = 1 if options.phase == "smoke" else 100
-            instances = load_instances(model, options.kappa, options.size, count)
-            result = quality_phase(model, instances, device, width, move_to, identity, attempt_dir)
-        else:
-            result = timing_phase(method_dir, checkpoint, options.gpu_id, identity, attempt_dir)
+        set_eval_seed(EVAL_SEED)
+        load_model, move_to = import_method_runtime(method_dir)
+        model, _ = load_model(str(checkpoint))
+        device = torch.device("cuda:0")
+        model.to(device)
+        model.eval()
+        count = 1 if options.phase == "smoke" else 100
+        instances = load_instances(model, options.kappa, options.size, count)
+        result = quality_phase(model, instances, device, width, move_to, identity, attempt_dir)
         metadata.update({"status": "SUCCEEDED", "finished_at": utc_now(), "result": result})
         write_json(attempt_dir / "metadata.json", metadata)
         status_path = PACKAGE_ROOT / "results" / options.run_id / "status" / options.phase / "{}.json".format(task_id(options.method, options.kappa, options.size, options.mode))
